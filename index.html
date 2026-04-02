@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Detox 7 Dias - Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --color-primary-start: #10B981;
+      --color-primary-end: #0F766E;
+      --color-accent: #34D399;
+      --bg-page: #F3F4F6;
+      --text-primary: #111827;
+      --text-secondary: #4B5563;
+      --radius-lg: 16px;
+      --shadow-btn: 0 8px 20px -6px rgba(16, 185, 129, 0.4);
+      --font-main: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: #F3F4F6;
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 440px;
+      min-height: 100vh;
+      background: var(--bg-page);
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .w-full {
+      width: 100%;
+    }
+
+    .p-6 {
+      padding: 1.5rem;
+    }
+
+    .mb-6 {
+      margin-bottom: 1.5rem;
+    }
+
+    .space-y-4>*+* {
+      margin-top: 1rem;
+    }
+
+    .font-bold {
+      font-weight: 700;
+    }
+
+    .text-brand {
+      background: linear-gradient(135deg, var(--color-primary-start), var(--color-primary-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: var(--color-primary-end);
+    }
+
+    .btn-primary {
+      width: 100%;
+      padding: 16px 24px;
+      background: linear-gradient(135deg, var(--color-primary-start), var(--color-primary-end));
+      color: white;
+      border: none;
+      border-radius: var(--radius-lg);
+      font-weight: 600;
+      font-size: 1.05rem;
+      box-shadow: var(--shadow-btn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    .quiz-option {
+      width: 100%;
+      padding: 18px 20px;
+      background: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: var(--radius-lg);
+      text-align: left;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+      margin-bottom: 14px;
+    }
+
+    .quiz-option:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .quiz-title {
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .quiz-subtitle {
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .feature-item {
+      width: 100%;
+      padding: 4px 0;
+      background: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: var(--radius-lg);
+      text-align: left;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .quiz-option {
+        padding: 16px 18px;
+        margin-bottom: 12px;
+      }
+
+      .quiz-title {
+        font-size: 1.5rem;
+      }
+
+      .feature-item {
+        margin-bottom: 16px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .progress-track {
+      height: 6px;
+      background: rgba(0, 0, 0, 0.05);
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 50;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--color-primary-start);
+      transition: width 0.3s ease;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .animate-spin {
+      animation: spin 1s linear infinite !important;
+    }
+
+    svg.animate-spin {
+      transform-origin: center !important;
+      transform-box: fill-box;
+      display: inline-block;
+      animation: spin 1s linear infinite !important;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 100%;
+      max-height: 90vh;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: white;
+      color: black;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      z-index: 1001;
+    }
+  </style>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "w4hn22xl6s");
+  </script>
+
+  <!-- Pixel utmify -->
+  <script>
+    window.pixelId = "69ced4afe79953d02f3c0a14";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+  </script>
+
+  <!-- Script UTMs utmify -->
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+  <div class="progress-track" id="progress-container">
+    <div class="flex items-center gap-4 max-w-md mx-auto">
+      <div class="flex-1 bg-gray-200 rounded-full h-2.5 overflow-hidden">
+        <div class="progress-fill" id="progress-bar" style="width: 0%; background-color: #10B981;"></div>
+      </div>
+      <span id="progress-text" class="text-sm font-bold whitespace-nowrap" style="color: #10B981;">1/12</span>
+    </div>
+  </div>
+
+  <div id="app" class="app-container"></div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script>
+    let audioCtx = null;
+
+    function playClickSound() {
+      try {
+        if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        // Create a pleasant, clear "pop" sound
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime); // High pitch
+        osc.frequency.exponentialRampToValueAtTime(440, audioCtx.currentTime + 0.1); // Quick slide down
+
+        gain.gain.setValueAtTime(0.4, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.1);
+      } catch (e) { }
+    }
+
+    const state = { step: 1, answers: {} };
+
+    const questions = [
+      {
+        q: "Qual é o seu objetivo principal com o detox?",
+        opts: ["Perder peso rapidamente", "Melhorar disposição e energia", "Reduzir inchaço", "Criar hábitos saudáveis"]
+      },
+      {
+        q: "Como você avalia seu nível de ansiedade?",
+        opts: ["Muito alto - afeta meu dia a dia", "Alto - me preocupo frequentemente", "Moderado - às vezes me sinto ansioso(a)", "Baixo - raramente me sinto ansioso(a)"]
+      },
+      {
+        q: "Você costuma beliscar entre as refeições?",
+        opts: ["Sim, o tempo todo", "Sim, quando estou ansioso(a)", "Às vezes", "Raramente ou nunca"]
+      },
+      {
+        q: "Como é sua rotina de exercícios?",
+        opts: ["Não faço exercícios", "1-2 vezes por semana", "3-4 vezes por semana", "5 ou mais vezes por semana"]
+      },
+      {
+        q: "Qual sua maior dificuldade com alimentação?",
+        opts: ["Controlar a fome", "Escolher alimentos saudáveis", "Comer por ansiedade", "Manter a consistência"]
+      },
+      {
+        q: "Você tem alguma restrição alimentar?",
+        opts: ["Nenhuma", "Vegetariano(a)", "Vegano(a)", "Intolerância (lactose, glúten)"]
+      },
+      {
+        q: "Qual seu horário de maior fome?",
+        opts: ["Manhã", "Tarde", "Noite", "Madrugada"]
+      },
+      {
+        q: "Como você descreveria seu sono?",
+        opts: ["Durmo bem todas as noites", "Durmo bem na maioria das noites", "Tenho dificuldade para dormir", "Acordo várias vezes durante a noite"]
+      },
+      {
+        q: "Você consome bebidas alcoólicas?",
+        opts: ["Nunca", "Raramente (1x por mês)", "Moderadamente (1-2x por semana)", "Frequentemente (3+ vezes por semana)"]
+      },
+      {
+        q: "Qual sua principal fonte de estresse?",
+        opts: ["Trabalho", "Relacionamentos", "Finanças", "Saúde"]
+      },
+      {
+        q: "Você bebe água suficiente?",
+        opts: ["Sim, mais de 2 litros por dia", "Sim, cerca de 1,5-2 litros", "Não, menos de 1 litro", "Não tenho certeza"]
+      },
+      {
+        q: "O que te motiva a começar agora?",
+        opts: ["Quero me sentir melhor comigo mesmo(a)", "Preciso de mais energia", "Quero melhorar minha saúde", "Quero emagrecer para um evento"]
+      }
+    ];
+
+    function renderApp() {
+      const root = document.getElementById('app');
+      const progressBar = document.getElementById('progress-bar');
+      const progressContainer = document.getElementById('progress-container');
+      const progressText = document.getElementById('progress-text');
+
+      let html = '';
+
+      if (state.step === 1) {
+        progressContainer.classList.add('hidden');
+        html = `<div class="flex flex-col min-h-full relative animate-fade-in">
+          <div class="flex-1 flex flex-col items-center justify-center p-6 relative">
+            <div class="mb-8 flex items-center justify-center w-14 h-14 bg-white rounded-2xl shadow-sm border border-green-100/50">
+              <i data-lucide="leaf" class="text-emerald-600"></i>
+            </div>
+            
+            <h1 class="text-center mb-4 flex flex-col items-center">
+              <div class="flex items-baseline gap-2 flex-wrap justify-center">
+                <span class="text-4xl font-extrabold text-gray-900 tracking-tight leading-none">Reset Total</span>
+                <span class="text-[3.5rem] leading-none font-black" style="color:#10B981">7 DIAS</span>
+              </div>
+              <span class="block text-sm font-bold tracking-[0.2em] text-gray-400 uppercase mt-2">Plano Exclusivo</span>
+            </h1>
+            
+            <div class="mt-12 w-full max-w-md mx-auto space-y-4">
+              <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+                  <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 shrink-0">
+                    <i data-lucide="activity" class="w-6 h-6 text-emerald-600"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-base font-bold text-gray-900">Reativar Metabolismo</h3>
+                    <p class="text-xs text-gray-500 mt-0.5">Acelere sua queima calórica</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+                  <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 shrink-0">
+                    <i data-lucide="brain" class="w-6 h-6 text-emerald-600"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-base font-bold text-gray-900">Mente Silenciosa</h3>
+                    <p class="text-xs text-gray-500 mt-0.5">Reduza ansiedade e estresse</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="bg-white/60 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all duration-300">
+                <div class="flex items-center gap-4">
+                  <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50 shrink-0">
+                    <i data-lucide="zap" class="w-6 h-6 text-emerald-600"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-base font-bold text-gray-900">Corpo Mais Leve</h3>
+                    <p class="text-xs text-gray-500 mt-0.5">Sinta-se revigorado e energizado</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-6 pb-10">
+            <div class="text-center mb-8">
+              <p class="text-sm text-gray-500 font-medium">"Vamos personalizar seu protocolo."</p>
+            </div>
+            <button onclick="nextStep()" class="btn-primary w-full">
+              <span class="flex-1 text-center">COMEÇAR AGORA</span>
+              <i data-lucide="arrow-right"></i>
+            </button>
+            <p class="text-[10px] text-gray-400 text-center mt-4 tracking-wide uppercase">100% Gratuito • Leva menos de 1 min</p>
+          </div>
+        </div>`;
+      } else if (state.step <= 12) {
+        const current = questions[state.step - 1];
+        const pct = (state.step / 12) * 100;
+        progressBar.style.width = pct + '%';
+        progressText.innerText = `${state.step}/12`;
+
+        html = `<div class="w-full animate-fade-in">
+          <h2 class="quiz-title text-2xl md:text-3xl font-bold text-gray-800">${current.q}</h2>
+          <p class="quiz-subtitle text-sm text-gray-500">Escolha a opção que mais se encaixa com você</p>
+          <div class="space-y-3">
+            ${current.opts.map((opt, i) =>
+          `<button class="quiz-option w-full text-left bg-white rounded-xl shadow-sm border border-gray-200 hover:border-emerald-400 hover:shadow-md font-medium text-gray-700" onclick="answer(${i})">${opt}</button>`
+        ).join('')}
+          </div>
+        </div>`;
+      } else if (state.step === 13) {
+        progressContainer.classList.add('hidden');
+        if (!window.analysisStarted) {
+          window.analysisStarted = true;
+          let p = 0;
+          const steps = [
+            { id: 1, label: "Analisando perfil metabólico", start: 0, complete: 25 },
+            { id: 2, label: "Identificando gatilhos de ansiedade", start: 25, complete: 50 },
+            { id: 3, label: "Calculando estratégia calórica", start: 50, complete: 75 },
+            { id: 4, label: "Gerando cronograma de 7 dias", start: 75, complete: 100 }
+          ];
+
+          const interval = setInterval(() => {
+            p += 1;
+            const progressEl = document.getElementById('analysis-progress-val');
+            const barEl = document.getElementById('analysis-bar-inner');
+
+            if (progressEl) progressEl.innerText = p + '%';
+            if (barEl) barEl.style.width = p + '%';
+
+            steps.forEach((step) => {
+              const stepEl = document.getElementById(`step-${step.id}`);
+              if (!stepEl) return;
+
+              let currentStatus = '';
+              if (p > step.complete) currentStatus = 'complete';
+              else if (p >= step.start) currentStatus = 'active';
+              else currentStatus = 'pending';
+
+              if (stepEl.dataset.status === currentStatus) return;
+              stepEl.dataset.status = currentStatus;
+
+              if (currentStatus === 'complete') {
+                stepEl.innerHTML = `
+                <div class="bg-white p-1 shrink-0">
+                  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" fill="#10B981"/>
+                    <path d="M8 12l3 3 5-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <span class="text-sm font-bold" style="color:#10B981">${step.label}</span>`;
+              } else if (currentStatus === 'active') {
+                stepEl.innerHTML = `
+                <div class="bg-white p-1 shrink-0">
+                  <svg class="w-6 h-6 animate-spin" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="3" fill="none" stroke-dasharray="50 15" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <span class="text-sm font-medium text-gray-800">${step.label}</span>`;
+              } else {
+                stepEl.innerHTML = `
+                <div class="bg-white p-1 shrink-0">
+                  <div class="w-6 h-6 border-2 border-gray-200 rounded-full"></div>
+                </div>
+                <span class="text-sm text-gray-400">${step.label}</span>`;
+              }
+            });
+
+            if (p >= 100) {
+              clearInterval(interval);
+              const statusEl = document.getElementById('analysis-status');
+              const subEl = document.getElementById('analysis-sub');
+              const iconEl = document.getElementById('analysis-icon');
+
+              if (statusEl) statusEl.innerText = "Plano Pronto!";
+              if (subEl) subEl.innerText = "Redirecionando...";
+              if (iconEl) {
+                iconEl.innerHTML = `<svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="2" fill="none"/>
+                  <path d="M8 12l3 3 5-6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`;
+              }
+
+              setTimeout(nextStep, 1500);
+            }
+          }, 50);
+        }
+        html = `<div class="flex flex-col min-h-full p-6 justify-center animate-fade-in w-full">
+          <div class="text-center mb-8">
+            <div id="analysis-icon" class="inline-flex items-center justify-center w-16 h-16 mb-6">
+              <svg class="w-12 h-12 animate-spin" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="3" fill="none" stroke-dasharray="50 15" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h2 id="analysis-status" class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Construindo seu plano...</h2>
+            <p id="analysis-sub" class="text-sm text-gray-500 mb-6">Isso pode levar alguns segundos</p>
+            <div class="mb-2">
+              <span class="text-sm font-bold text-gray-700">Progresso: </span>
+              <span id="analysis-progress-val" class="text-sm font-bold" style="color:#10B981">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5 mb-8">
+              <div id="analysis-bar-inner" class="h-full rounded-full transition-all duration-300" style="width:0%; background-color:#10B981"></div>
+            </div>
+          </div>
+          <div class="space-y-5 px-2">
+            <div id="step-1" class="relative z-10 flex items-center gap-4">
+              <div class="bg-white p-1">
+                <div class="w-6 h-6 border-2 border-gray-200 rounded-full"></div>
+              </div>
+              <span class="text-sm text-gray-400">Analisando perfil metabólico</span>
+            </div>
+            <div id="step-2" class="relative z-10 flex items-center gap-4">
+              <div class="bg-white p-1">
+                <div class="w-6 h-6 border-2 border-gray-200 rounded-full"></div>
+              </div>
+              <span class="text-sm text-gray-400">Identificando gatilhos de ansiedade</span>
+            </div>
+            <div id="step-3" class="relative z-10 flex items-center gap-4">
+              <div class="bg-white p-1">
+                <div class="w-6 h-6 border-2 border-gray-200 rounded-full"></div>
+              </div>
+              <span class="text-sm text-gray-400">Calculando estratégia calórica</span>
+            </div>
+            <div id="step-4" class="relative z-10 flex items-center gap-4">
+              <div class="bg-white p-1">
+                <div class="w-6 h-6 border-2 border-gray-200 rounded-full"></div>
+              </div>
+              <span class="text-sm text-gray-400">Gerando cronograma de 7 dias</span>
+            </div>
+          </div>
+        </div>`;
+      } else if (state.step >= 14) {
+        progressContainer.classList.add('hidden');
+        html = `<div class="flex flex-col min-h-full p-6 animate-fade-in pb-20">
+          <div class="text-center mb-6 pt-8">
+            <div class="inline-block bg-green-100 text-green-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-4">Acesso Liberado</div>
+            <h1 class="text-3xl font-bold leading-tight">Seu Plano Reset<br>está pronto!</h1>
+            <p class="mt-6 font-medium">Aplicativo <span class="font-bold text-emerald-600">Detox7 PRO</span></p>
+          </div>
+          <div class="space-y-5 mb-8 px-2">
+            <div class="flex gap-4 items-start">
+              <svg class="w-5 h-5 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="2" fill="none"/>
+                <path d="M8 12l3 3 5-6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="text-sm text-gray-600">Tarefas diárias no aplicativo</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <svg class="w-5 h-5 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="2" fill="none"/>
+                <path d="M8 12l3 3 5-6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="text-sm text-gray-600">Receitas detox e emagrecimento</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <svg class="w-5 h-5 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="#10B981" stroke-width="2" fill="none"/>
+                <path d="M8 12l3 3 5-6" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="text-sm text-gray-600">Análise de calorias</span>
+            </div>
+            <div class="flex gap-4 items-start">
+              <svg class="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M8 12l3 3 5-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+              </svg>
+              <span class="text-sm font-bold text-emerald-800">Bônus: Ebook 70 Receitas receitas saudáveis para revigorar o corpo</span>
+            </div>
+          </div>
+
+          <!-- Video -->
+          <div class="mb-8 rounded-2xl overflow-hidden shadow-lg border-2 border-emerald-500/20">
+            <video class="w-full h-auto" controls>
+              <source src="public/videoapp.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="bg-white rounded-3xl p-6 mb-8 shadow-md border border-gray-100">
+            <div class="flex items-center justify-between mb-5">
+              <span class="text-sm font-bold uppercase text-gray-500 tracking-wider">Valor Vitalício</span>
+              <span class="text-lg text-red-500 line-through font-medium">R$ 197,00</span>
+            </div>
+            <div class="flex items-end justify-between mb-6">
+              <div>
+                <p class="text-xs text-gray-500 mb-1 uppercase tracking-wide font-semibold">Oferta Especial</p>
+                <div class="flex items-baseline gap-2">
+                  <span class="text-4xl font-black text-emerald-600">R$ 37,00</span>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">à vista</p>
+              </div>
+              <div class="text-center bg-red-500 text-white px-3 py-2 rounded-xl">
+                <div class="text-xs font-bold uppercase tracking-wide">Desconto</div>
+                <div class="text-xl font-black leading-tight">76%</div>
+              </div>
+            </div>
+            <div class="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6">
+              <div class="flex items-center gap-3 mb-2">
+                <svg class="w-5 h-5 text-amber-600" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-sm font-bold text-amber-800">Esta oferta expira em:</span>
+              </div>
+              <div id="countdown" class="text-2xl font-black text-amber-900 text-center"></div>
+            </div>
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M3 10h18" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span class="text-xs text-gray-600">Pagamento 100% Seguro</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text-xs text-gray-600">Garantia de 7 dias</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg class="w-5 h-5 text-emerald-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M9 6h6M9 10h6M9 14h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="text-xs text-gray-600">Acesso imediato no celular</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonials Section -->
+          <div class="px-2 mb-24 cursor-pointer" onclick="openZoom()">
+            <img src="public/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg" alt="Depoimentos" class="w-full rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+          </div>
+
+          <div class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white via-white to-transparent">
+            <button onclick="checkout()" class="w-full max-w-md mx-auto block bg-emerald-500 text-white font-bold py-4 rounded-xl shadow-lg hover:bg-emerald-600 transition-colors text-lg">
+              Liberar Meu Acesso Agora
+            </button>
+          </div>
+        </div>`;
+
+        setTimeout(() => {
+          startCountdown();
+        }, 500);
+      }
+
+      root.innerHTML = html;
+      lucide.createIcons();
+    }
+
+    function nextStep() {
+      playClickSound();
+      state.step++;
+      renderApp();
+    }
+
+    function handleOption(key, value) {
+      state.answers[key] = value;
+      nextStep();
+    }
+
+    function answer(idx) {
+      playClickSound();
+      state.answers[state.step] = idx;
+      nextStep();
+    }
+
+    function startCountdown() {
+      let time = 15 * 60;
+      const countdownEl = document.getElementById('countdown');
+      if (!countdownEl) return;
+
+      const interval = setInterval(() => {
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        countdownEl.innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        time--;
+        if (time < 0) clearInterval(interval);
+      }, 1000);
+    }
+
+    function checkout() {
+      playClickSound();
+      window.top.location.href = 'https://zuckpay.com.br/checkout/aplicativo-detox7-pro';
+    }
+
+    function openZoom() {
+      const modal = document.getElementById('zoom-modal');
+      modal.classList.add('active');
+    }
+
+    function closeZoom() {
+      const modal = document.getElementById('zoom-modal');
+      modal.classList.remove('active');
+    }
+
+    renderApp();
+  </script>
+
+  <!-- Zoom Modal -->
+  <div id="zoom-modal" class="modal-overlay" onclick="closeZoom()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-close" onclick="closeZoom()">✕</div>
+      <img src="public/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg"
+        alt="Zoom Depoimento" class="max-w-full max-h-[85vh] rounded-lg">
+    </div>
+  </div>
+</body>
+
+</html>
