@@ -135,12 +135,12 @@ export default function DetoxQuizPage() {
   if (step === 1) {
     return (
       <div className="min-h-screen flex flex-col bg-[#F3F4F6]">
-        <div className="flex-1 flex flex-col items-center justify-center p-6">
-          <div className="mb-8 flex items-center justify-center w-14 h-14 bg-white rounded-2xl shadow-sm border border-emerald-100/50">
+        <div className="flex-1 flex flex-col items-center justify-center p-4">
+          <div className="mb-4 flex items-center justify-center w-14 h-14 bg-white rounded-2xl shadow-sm border border-emerald-100/50">
             <Leaf className="w-8 h-8 text-emerald-600" />
           </div>
 
-          <h1 className="text-center mb-4">
+          <h1 className="text-center mb-2">
             <div className="flex items-baseline gap-2 flex-wrap justify-center">
               <span className="text-4xl font-extrabold text-gray-900 tracking-tight">Reset Total</span>
               <span className="text-[3.5rem] leading-none font-black text-emerald-600">7 DIAS</span>
@@ -150,8 +150,8 @@ export default function DetoxQuizPage() {
             </span>
           </h1>
 
-          <div className="mt-12 w-full max-w-md mx-auto space-y-4">
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all">
+          <div className="mt-6 w-full max-w-md mx-auto space-y-3">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50">
                   <Activity className="w-6 h-6 text-emerald-600" />
@@ -163,7 +163,7 @@ export default function DetoxQuizPage() {
               </div>
             </div>
 
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50">
                   <Brain className="w-6 h-6 text-emerald-600" />
@@ -175,7 +175,7 @@ export default function DetoxQuizPage() {
               </div>
             </div>
 
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all">
+            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50">
                   <Zap className="w-6 h-6 text-emerald-600" />
@@ -189,11 +189,8 @@ export default function DetoxQuizPage() {
           </div>
         </div>
 
-        <div className="p-6 pb-10">
+        <div className="p-4 pb-6">
           <div className="max-w-md mx-auto">
-            <div className="text-center mb-8">
-              <p className="text-sm text-gray-500 font-medium">"Vamos personalizar seu protocolo."</p>
-            </div>
             <button
               onClick={nextStep}
               className="w-full px-6 py-4 bg-gradient-to-r from-emerald-500 to-teal-700 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2"
@@ -201,7 +198,7 @@ export default function DetoxQuizPage() {
               <span>COMEÇAR AGORA</span>
               <ArrowRight className="w-5 h-5" />
             </button>
-            <p className="text-[10px] text-gray-400 text-center mt-4 tracking-wide uppercase">
+            <p className="text-[10px] text-gray-400 text-center mt-3 tracking-wide uppercase">
               100% Gratuito • Leva menos de 1 min
             </p>
           </div>
