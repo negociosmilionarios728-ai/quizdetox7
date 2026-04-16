@@ -135,12 +135,12 @@ export default function DetoxQuizPage() {
   if (step === 1) {
     return (
       <div className="min-h-screen flex flex-col bg-[#F3F4F6]">
-        <div className="flex-1 flex flex-col items-center justify-center p-4">
-          <div className="mb-4 flex items-center justify-center w-14 h-14 bg-white rounded-2xl shadow-sm border border-emerald-100/50">
+        <div className="flex-1 flex flex-col items-center justify-center px-6 pt-6 pb-3">
+          <div className="mb-3 flex items-center justify-center w-14 h-14 bg-white rounded-2xl shadow-sm border border-emerald-100/50">
             <Leaf className="w-8 h-8 text-emerald-600" />
           </div>
 
-          <h1 className="text-center mb-2">
+          <h1 className="text-center mb-3">
             <div className="flex items-baseline gap-2 flex-wrap justify-center">
               <span className="text-4xl font-extrabold text-gray-900 tracking-tight">Reset Total</span>
               <span className="text-[3.5rem] leading-none font-black text-emerald-600">7 DIAS</span>
@@ -150,7 +150,7 @@ export default function DetoxQuizPage() {
             </span>
           </h1>
 
-          <div className="mt-6 w-full max-w-md mx-auto space-y-3">
+          <div className="mt-4 w-full max-w-md mx-auto space-y-3">
             <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 shadow-sm border border-emerald-100/50 hover:shadow-md transition-all">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100/50">
@@ -189,7 +189,7 @@ export default function DetoxQuizPage() {
           </div>
         </div>
 
-        <div className="p-4 pb-6">
+        <div className="px-6 pb-5">
           <div className="max-w-md mx-auto">
             <button
               onClick={nextStep}
@@ -198,7 +198,7 @@ export default function DetoxQuizPage() {
               <span>COMEÇAR AGORA</span>
               <ArrowRight className="w-5 h-5" />
             </button>
-            <p className="text-[10px] text-gray-400 text-center mt-3 tracking-wide uppercase">
+            <p className="text-[10px] text-gray-400 text-center mt-4 tracking-wide uppercase">
               100% Gratuito • Leva menos de 1 min
             </p>
           </div>
