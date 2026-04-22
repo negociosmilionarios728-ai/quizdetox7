@@ -357,7 +357,7 @@ export function OfferPage() {
                 </div>
               ))}
             </div>
-            <div className="mt-6 rounded-[2rem] border border-teal-200/70 bg-slate-950 p-6 text-white shadow-xl">
+            <div className="mt-24 rounded-[2rem] border border-teal-200/70 bg-slate-950 p-6 text-white shadow-xl">
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">Oferta ativa</p>
