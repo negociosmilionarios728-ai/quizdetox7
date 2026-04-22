@@ -329,7 +329,7 @@ export function OfferPage() {
                   <img
                     src="/images/video-poster.png"
                     alt="Dê play no vídeo e descubra como funciona o Detox7 PRO"
-                    className="h-full w-full object-contain"
+                    className="h-[92%] w-[92%] object-contain"
                   />
                 </button>
               )}
