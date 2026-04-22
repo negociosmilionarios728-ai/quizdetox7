@@ -1,26 +1,168 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
+import {
+  ChevronDown,
+  CircleCheckBig,
+  Clock3,
+  Flame,
+  Lock,
+  Play,
+  ShieldCheck,
+  Sparkles,
+  Star,
+  Smartphone,
+  TrendingDown,
+} from "lucide-react"
 import { playClickSound } from "@/lib/audio"
+import { buildCheckoutUrl } from "@/lib/tracking"
 
-interface OfferPageProps {
-  isImageZoomed: boolean
-  setIsImageZoomed: (value: boolean) => void
-}
+const benefits = [
+  "Plano guiado para 30 dias com tarefas simples",
+  "Receitas detox e emagrecimento dentro do app",
+  "Analise de calorias para tomar decisoes melhores",
+  "Bonus com ebook de 70 receitas para acelerar resultados",
+]
 
-export function OfferPage({ isImageZoomed, setIsImageZoomed }: OfferPageProps) {
+const highlights = [
+  {
+    icon: Flame,
+    title: "Rotina guiada",
+    text: "Receba o que fazer em cada etapa sem precisar montar dieta sozinho(a).",
+  },
+  {
+    icon: TrendingDown,
+    title: "Menos inchaco",
+    text: "Foco em leveza, constancia e praticidade no dia a dia.",
+  },
+  {
+    icon: Smartphone,
+    title: "Tudo no celular",
+    text: "Acesse o conteudo quando quiser e acompanhe seu progresso no app.",
+  },
+]
+
+const faqs = [
+  {
+    question: "Como recebo o acesso depois da compra?",
+    answer: "Assim que o pagamento for confirmado, o acesso e liberado imediatamente com as instrucoes para entrar no aplicativo.",
+  },
+  {
+    question: "Preciso seguir uma dieta dificil?",
+    answer: "Nao. A proposta do Detox7 PRO e simplificar sua rotina com orientacoes objetivas, receitas e acompanhamento pratico.",
+  },
+  {
+    question: "Funciona para quem tem pouco tempo?",
+    answer: "Sim. O conteudo foi pensado para encaixar na rotina corrida, com tarefas simples e acompanhamento direto pelo celular.",
+  },
+  {
+    question: "Tem garantia?",
+    answer: "Sim. Voce conta com garantia de 7 dias para testar o acesso com mais seguranca.",
+  },
+]
+
+export function OfferPage() {
   const [isTestimonialsZoomed, setIsTestimonialsZoomed] = useState(false)
-  const [timeLeft, setTimeLeft] = useState(15 * 60) // 15 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState(15 * 60)
+  const [showVideoOverlay, setShowVideoOverlay] = useState(true)
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const hasScrollInteractedRef = useRef(false)
+  const isVideoVisibleRef = useRef(false)
 
   useEffect(() => {
     if (timeLeft <= 0) return
 
     const timer = setInterval(() => {
-      setTimeLeft((prev: number) => prev - 1)
+      setTimeLeft((prev) => prev - 1)
     }, 1000)
 
     return () => clearInterval(timer)
   }, [timeLeft])
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    video.playsInline = true
+
+    const tryPlayWithAudio = () => {
+      if (!isVideoVisibleRef.current) return
+
+      video.muted = false
+      video.volume = 1
+      void video
+        .play()
+        .then(() => {
+          setShowVideoOverlay(false)
+        })
+        .catch(() => {
+          setShowVideoOverlay(true)
+        })
+    }
+
+    const syncOverlayState = () => {
+      setShowVideoOverlay(video.paused)
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const isVisible = Boolean(entry?.isIntersecting)
+        isVideoVisibleRef.current = isVisible
+
+        if (isVisible) {
+          if (hasScrollInteractedRef.current) {
+            tryPlayWithAudio()
+          }
+          return
+        }
+
+        video.pause()
+      },
+      { threshold: 0.6 }
+    )
+
+    const handleScrollInteraction = () => {
+      hasScrollInteractedRef.current = true
+      tryPlayWithAudio()
+    }
+
+    syncOverlayState()
+    observer.observe(video)
+    video.addEventListener("play", syncOverlayState)
+    video.addEventListener("pause", syncOverlayState)
+    video.addEventListener("ended", syncOverlayState)
+    window.addEventListener("scroll", handleScrollInteraction, { passive: true })
+    window.addEventListener("wheel", handleScrollInteraction, { passive: true })
+    window.addEventListener("touchmove", handleScrollInteraction, { passive: true })
+
+    return () => {
+      observer.disconnect()
+      video.removeEventListener("play", syncOverlayState)
+      video.removeEventListener("pause", syncOverlayState)
+      video.removeEventListener("ended", syncOverlayState)
+      window.removeEventListener("scroll", handleScrollInteraction)
+      window.removeEventListener("wheel", handleScrollInteraction)
+      window.removeEventListener("touchmove", handleScrollInteraction)
+    }
+  }, [])
+
+  const handleVideoOverlayPlay = () => {
+    const video = videoRef.current
+    if (!video) return
+
+    hasScrollInteractedRef.current = true
+    video.muted = false
+    video.volume = 1
+    void video
+      .play()
+      .then(() => {
+        setShowVideoOverlay(false)
+      })
+      .catch(() => {
+        setShowVideoOverlay(true)
+      })
+  }
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)
@@ -28,154 +170,292 @@ export function OfferPage({ isImageZoomed, setIsImageZoomed }: OfferPageProps) {
     return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`
   }
 
+  const handleCheckoutClick = () => {
+    playClickSound()
+    const checkoutUrl = buildCheckoutUrl("https://zuckpay.com.br/checkout/aplicativo-detox7-pro")
+    window.top!.location.href = checkoutUrl
+  }
+
+  const checkoutButtonClassName =
+    "w-full rounded-full bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-700 px-6 py-4 text-center text-base font-extrabold text-white shadow-[0_20px_40px_-20px_rgba(13,148,136,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-20px_rgba(13,148,136,0.95)]"
+
   return (
-    <div className="min-h-screen w-full max-w-2xl mx-auto px-4 py-8 bg-[#F3F4F6]">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold mb-2">
-          Aplicativo <span className="text-teal-600">Detox7 PRO</span>
-        </h1>
-      </div>
-
-      {/* Benefits List */}
-      <div className="space-y-3 mb-8">
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <span className="text-gray-700">Tarefas diárias no aplicativo</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <span className="text-gray-700">Receitas detox e emagrecimento</span>
-        </div>
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <span className="text-gray-700">Análise de calorias</span>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <div className="w-6 h-6 rounded-full bg-teal-500 flex items-center justify-center flex-shrink-0">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-          </div>
-          <span className="text-teal-600 font-semibold">
-            Bônus: Ebook 70 Receitas receitas saudáveis para revigorar o corpo
-          </span>
-        </div>
-      </div>
-
-      {/* Video */}
-      <div className="mb-8 rounded-2xl overflow-hidden shadow-lg border-2 border-teal-500/20">
-        <video className="w-full h-auto" controls>
-          <source src="/videoapp.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-
-      {/* Pricing Card */}
-      <div className="bg-white rounded-2xl shadow-lg p-8 mb-8 text-center relative">
-        <div className="mb-6">
-          <p className="text-gray-500 text-sm font-semibold mb-2">VALOR VITALÍCIO</p>
-          <p className="text-3xl font-bold text-red-500 line-through">R$ 197,00</p>
-        </div>
-
-        <div className="mb-6">
-          <p className="text-gray-500 text-sm font-semibold mb-3">OFERTA ESPECIAL</p>
-          <div className="flex items-baseline gap-2 mb-1 justify-center">
-            <span className="text-4xl font-bold text-teal-600">R$ 37,00</span>
-          </div>
-          <p className="text-gray-600 text-sm">à vista</p>
-        </div>
-
-        <div className="relative bg-yellow-50 border-2 border-yellow-200 rounded-xl p-4 mb-6">
-          <div className="flex items-center gap-2 mb-2 justify-center">
-            <svg className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z" />
-            </svg>
-            <p className="text-gray-800 font-semibold">Esta oferta expira em:</p>
-          </div>
-          <p className="text-3xl font-bold text-orange-600 font-mono tracking-wider">{formatTime(timeLeft)}</p>
-        </div>
-
-        <div className="absolute top-4 right-4 bg-red-500 rounded-full w-24 h-24 flex items-center justify-center">
-          <div className="text-center">
-            <p className="text-white font-bold text-xs">DESCONTO</p>
-            <p className="text-white font-bold text-lg">76%</p>
-          </div>
-        </div>
-
-        <div className="space-y-3 mb-6">
-          <div className="flex items-center gap-2 text-gray-700 justify-center">
-            <svg className="w-5 h-5 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S17.52 1 12 1zm-2 16l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z" />
-            </svg>
-            <span>Pagamento 100% Seguro</span>
-          </div>
-          <div className="flex items-center gap-2 text-gray-700 justify-center">
-            <svg className="w-5 h-5 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S17.52 1 12 1zm-2 16l-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8l-9 9z" />
-            </svg>
-            <span>Garantia de 7 dias</span>
-          </div>
-          <div className="flex items-center gap-2 text-gray-700 justify-center">
-            <svg className="w-5 h-5 text-teal-600" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-            </svg>
-            <span>Acesso imediato no celular</span>
-          </div>
-        </div>
-      </div>
-
-      <button
-        onClick={() => {
-          playClickSound();
-          window.top!.location.href = "https://zuckpay.com.br/checkout/aplicativo-detox7-pro";
-        }}
-        className="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-4 px-6 rounded-full text-lg transition-colors mb-8 text-center block"
-      >
-        Liberar Meu Acesso Agora
-      </button>
-
-      {/* Testimonials Section */}
-      <div className="cursor-pointer" onClick={() => setIsTestimonialsZoomed(true)}>
-        <img
-          src="/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg"
-          alt="Depoimentos de clientes sobre o Detox7 PRO"
-          className="w-full rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
-        />
-      </div>
-
-      {/* Testimonials Zoom Modal */}
-      {isTestimonialsZoomed && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4">
-          <div className="relative max-w-4xl w-full max-h-[90vh] flex flex-col">
-            {/* Close Button */}
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,#d5faf5_0%,#eef7f6_38%,#f6f8f7_100%)] text-slate-900">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 pb-28 pt-4 sm:px-6 lg:px-8">
+        <div className="sticky top-3 z-30 rounded-full border border-white/70 bg-white/85 px-4 py-3 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.45)] backdrop-blur">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-100 text-teal-700">
+                <Sparkles className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-slate-900">Detox7 PRO</p>
+                <p className="text-xs text-slate-500">Oferta especial ativa agora</p>
+              </div>
+            </div>
             <button
-              onClick={() => setIsTestimonialsZoomed(false)}
-              className="absolute top-4 right-4 bg-white text-black rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-200 transition-colors z-10"
+              type="button"
+              onClick={handleCheckoutClick}
+              className="rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-800"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              Quero acesso
+            </button>
+          </div>
+        </div>
+
+        <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div className="relative overflow-hidden rounded-[2rem] border border-teal-200/70 bg-white px-6 py-7 shadow-[0_35px_90px_-45px_rgba(15,23,42,0.35)] sm:px-8 sm:py-9">
+            <div className="absolute -left-16 top-0 h-44 w-44 rounded-full bg-teal-200/40 blur-3xl" />
+            <div className="absolute right-0 top-10 h-52 w-52 rounded-full bg-emerald-200/40 blur-3xl" />
+
+            <div className="relative">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-teal-700">
+                <Star className="h-4 w-4 fill-current" />
+                Aplicativo + bonus imediato
+              </div>
+
+              <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
+                Sua pagina final de conversao agora pode vender melhor com uma oferta mais clara e mais forte.
+              </h1>
+
+              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+                O Detox7 PRO entrega uma experiencia simples, guiada e feita para celular, com foco em leveza, rotina e acesso rapido ao que a pessoa precisa fazer.
+              </p>
+
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                {benefits.map((benefit) => (
+                  <div
+                    key={benefit}
+                    className="flex items-start gap-3 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 shadow-sm"
+                  >
+                    <div className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-teal-500 text-white">
+                      <CircleCheckBig className="h-4 w-4" />
+                    </div>
+                    <p className="text-sm font-medium leading-6 text-slate-700">{benefit}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <button onClick={handleCheckoutClick} className={checkoutButtonClassName}>
+                  Liberar meu acesso agora
+                </button>
+              </div>
+
+              <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-slate-500">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-teal-600" />
+                  Garantia de 7 dias
+                </div>
+                <div className="flex items-center gap-2">
+                  <Lock className="h-4 w-4 text-teal-600" />
+                  Pagamento seguro
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock3 className="h-4 w-4 text-teal-600" />
+                  Acesso imediato
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            <div className="rounded-[2rem] border border-teal-200/70 bg-slate-950 p-6 text-white shadow-[0_35px_90px_-45px_rgba(15,23,42,0.65)]">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">Oferta ativa</p>
+                  <p className="mt-2 text-3xl font-black">R$ 9,99</p>
+                  <p className="mt-1 text-sm text-slate-300 line-through">De R$ 67,00 por tempo limitado</p>
+                </div>
+                <div className="rounded-full bg-red-500 px-4 py-3 text-center">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Desconto</p>
+                  <p className="text-2xl font-black">76%</p>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-teal-200">Esta oferta expira em</p>
+                <p className="mt-3 font-mono text-4xl font-black tracking-[0.18em]">{formatTime(timeLeft)}</p>
+              </div>
+
+              <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mt-6 mb-0`}>
+                Garantir oferta especial
+              </button>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+              {highlights.map(({ icon: Icon, title, text }) => (
+                <div
+                  key={title}
+                  className="rounded-[1.6rem] border border-white/80 bg-white/90 p-5 shadow-[0_25px_60px_-40px_rgba(15,23,42,0.35)] backdrop-blur"
+                >
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-teal-100 text-teal-700">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-lg font-bold text-slate-900">{title}</h2>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="rounded-[2rem] border border-teal-200/60 bg-white/90 p-5 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
+                <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
+                  Um app pensado para vender resultado de forma visual
+                </h2>
+              </div>
+              <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
+                Video demonstrativo
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden rounded-[1.6rem] border border-teal-500/20 bg-slate-950 shadow-lg">
+              <video ref={videoRef} className="w-full h-auto" controls playsInline preload="metadata">
+                <source src="/videoapp.mp4" type="video/mp4" />
+                Seu navegador nao suporta video.
+              </video>
+              {showVideoOverlay && (
+                <button
+                  type="button"
+                  onClick={handleVideoOverlayPlay}
+                  className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950/20 transition hover:bg-slate-950/35"
+                  aria-label="Reproduzir video com audio"
+                >
+                  <span className="flex h-24 w-24 items-center justify-center rounded-full bg-white/95 shadow-2xl ring-8 ring-teal-400/20">
+                    <Play className="ml-1 h-10 w-10 fill-teal-600 text-teal-600" />
+                  </span>
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-teal-200/60 bg-white p-6 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">O que voce recebe</p>
+            <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950">
+              Uma oferta mais completa, mais segura e mais facil de entender
+            </h2>
+
+            <div className="mt-6 space-y-4">
+              {[
+                "Acesso ao aplicativo Detox7 PRO",
+                "Plano com tarefas e acompanhamento visual",
+                "Receitas focadas em detox e rotina",
+                "Ebook bonus com 70 receitas saudaveis",
+              ].map((item) => (
+                <div key={item} className="flex items-center gap-3 rounded-2xl bg-slate-50 p-4">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-500 text-white">
+                    <CircleCheckBig className="h-5 w-5" />
+                  </div>
+                  <span className="font-medium text-slate-700">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-[1.6rem] bg-gradient-to-r from-teal-50 via-white to-emerald-50 p-5">
+              <p className="text-sm leading-7 text-slate-600">
+    
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="overflow-hidden rounded-[2rem] border border-teal-200/60 bg-white p-5 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">Prova social</p>
+                <h2 className="mt-2 text-2xl font-black text-slate-950">Depoimentos que reforcam a decisao</h2>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsTestimonialsZoomed(true)}
+                className="rounded-full border border-teal-200 px-4 py-2 text-sm font-semibold text-teal-700 transition hover:bg-teal-50"
+              >
+                Ampliar
+              </button>
+            </div>
+
+            <div className="mt-5 cursor-pointer" onClick={() => setIsTestimonialsZoomed(true)}>
+              <img
+                src="/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg"
+                alt="Depoimentos de clientes sobre o Detox7 PRO"
+                className="w-full rounded-[1.6rem] shadow-lg transition duration-300 hover:scale-[1.01]"
+              />
+            </div>
+          </div>
+
+          <div className="rounded-[2rem] border border-teal-200/60 bg-white p-6 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">Perguntas frequentes</p>
+            <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">Tire as ultimas objeccoes antes do checkout</h2>
+
+            <div className="mt-6 space-y-3">
+              {faqs.map((faq, index) => {
+                const isOpen = openFaqIndex === index
+
+                return (
+                  <div
+                    key={faq.question}
+                    className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50/80"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+                    >
+                      <span className="font-semibold text-slate-900">{faq.question}</span>
+                      <ChevronDown
+                        className={`h-5 w-5 shrink-0 text-teal-700 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {isOpen && <div className="px-5 pb-5 text-sm leading-7 text-slate-600">{faq.answer}</div>}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="rounded-[2.2rem] border border-teal-200/60 bg-slate-950 px-6 py-8 text-white shadow-[0_35px_90px_-45px_rgba(15,23,42,0.65)] sm:px-8">
+          <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">Ultima chamada</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
+                Libere agora o Detox7 PRO por R$ 9,99 e direcione direto para o checkout.
+              </h2>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
+                Pagamento seguro, acesso imediato e garantia de 7 dias para voce entrar com mais confianca.
+              </p>
+            </div>
+
+            <div className="w-full max-w-sm">
+              <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
+                Quero liberar meu acesso
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      {isTestimonialsZoomed && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
+          <div className="relative flex max-h-[90vh] w-full max-w-4xl flex-col">
+            <button
+              type="button"
+              onClick={() => setIsTestimonialsZoomed(false)}
+              className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black transition hover:bg-slate-200"
+            >
+              <span className="text-xl font-bold">×</span>
             </button>
 
-            {/* Image */}
             <img
               src="/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg"
               alt="Depoimentos de clientes"
-              className="w-full h-full object-contain"
+              className="h-full w-full rounded-[1.5rem] object-contain"
             />
           </div>
         </div>
