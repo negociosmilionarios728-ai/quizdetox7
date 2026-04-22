@@ -323,7 +323,7 @@ export function OfferPage() {
                 <button
                   type="button"
                   onClick={handleVideoOverlayPlay}
-                  className="absolute inset-0 z-10 flex items-center justify-center bg-white transition-all duration-300 hover:scale-[1.02]"
+                  className="absolute inset-0 z-10 flex items-center justify-center bg-white p-4 transition-all duration-300 hover:scale-[1.01]"
                   aria-label="Reproduzir video com audio"
                 >
                   <img
