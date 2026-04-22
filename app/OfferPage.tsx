@@ -20,8 +20,8 @@ import { buildCheckoutUrl } from "@/lib/tracking"
 const benefits = [
   "Plano guiado para 30 dias com tarefas simples",
   "Receitas detox e emagrecimento dentro do app",
-  "Analise de calorias para tomar decisoes melhores",
-  "Bonus com ebook de 70 receitas para acelerar resultados",
+  "Análise de calorias para tomar decisões melhores",
+  "Bônus com ebook de 70 receitas para acelerar resultados",
 ]
 
 const highlights = [
@@ -33,7 +33,7 @@ const highlights = [
   {
     icon: TrendingDown,
     title: "Menos inchaco",
-    text: "Foco em leveza, constancia e praticidade no dia a dia.",
+    text: "Foco em leveza, constância e praticidade no dia a dia.",
   },
   {
     icon: Smartphone,
@@ -45,19 +45,19 @@ const highlights = [
 const faqs = [
   {
     question: "Como recebo o acesso depois da compra?",
-    answer: "Assim que o pagamento for confirmado, o acesso e liberado imediatamente com as instrucoes para entrar no aplicativo.",
+    answer: "Assim que o pagamento for confirmado, o acesso e liberado imediatamente com as instruções para entrar no aplicativo.",
   },
   {
     question: "Preciso seguir uma dieta dificil?",
-    answer: "Nao. A proposta do Detox7 PRO e simplificar sua rotina com orientacoes objetivas, receitas e acompanhamento pratico.",
+    answer: "Não. A proposta do Detox7 PRO e simplificar sua rotina com orientações objetivas, receitas e acompanhamento prático.",
   },
   {
     question: "Funciona para quem tem pouco tempo?",
-    answer: "Sim. O conteudo foi pensado para encaixar na rotina corrida, com tarefas simples e acompanhamento direto pelo celular.",
+    answer: "Sim. O conteúdo foi pensado para encaixar na rotina corrida, com tarefas simples e acompanhamento direto pelo celular.",
   },
   {
     question: "Tem garantia?",
-    answer: "Sim. Voce conta com garantia de 7 dias para testar o acesso com mais seguranca.",
+    answer: "Sim. Você conta com garantia de 7 dias para testar o acesso com mais segurança.",
   },
 ]
 
@@ -215,11 +215,11 @@ export function OfferPage() {
               </div>
 
               <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
-                Sua pagina final de conversao agora pode vender melhor com uma oferta mais clara e mais forte.
+                Você não precisa de dieta complicada para ter mais energia e leveza no dia a dia.
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                O Detox7 PRO entrega uma experiencia simples, guiada e feita para celular, com foco em leveza, rotina e acesso rapido ao que a pessoa precisa fazer.
+                O Detox7 PRO entrega uma experiência simples, guiada e feita para celular, com foco em leveza, rotina e acesso rapido ao que a pessoa precisa fazer.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -306,11 +306,11 @@ export function OfferPage() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
                 <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                  Um app pensado para vender resultado de forma visual
+                  Veja na prática como o Detox 7 Pro funciona
                 </h2>
               </div>
               <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
-                Video demonstrativo
+                Assista o vídeo demonstrativo
               </div>
             </div>
 
@@ -337,7 +337,7 @@ export function OfferPage() {
           <div className="rounded-[2rem] border border-teal-200/60 bg-white p-6 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
             <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">O que voce recebe</p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950">
-              Uma oferta mais completa, mais segura e mais facil de entender
+              Acesso completo ao Detox 7 Pro + bônus
             </h2>
 
             <div className="mt-6 space-y-4">
@@ -345,7 +345,7 @@ export function OfferPage() {
                 "Acesso ao aplicativo Detox7 PRO",
                 "Plano com tarefas e acompanhamento visual",
                 "Receitas focadas em detox e rotina",
-                "Ebook bonus com 70 receitas saudaveis",
+                "Ebook bônus com 70 receitas saudáveis",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-2xl bg-slate-50 p-4">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-teal-500 text-white">
@@ -369,14 +369,14 @@ export function OfferPage() {
             <div className="flex items-center justify-between gap-4">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">Prova social</p>
-                <h2 className="mt-2 text-2xl font-black text-slate-950">Depoimentos que reforcam a decisao</h2>
+                <h2 className="mt-2 text-2xl font-black text-slate-950">Olha isso 👇</h2>
               </div>
               <button
                 type="button"
                 onClick={() => setIsTestimonialsZoomed(true)}
                 className="rounded-full border border-teal-200 px-4 py-2 text-sm font-semibold text-teal-700 transition hover:bg-teal-50"
               >
-                Ampliar
+                Ver depoimentos reais
               </button>
             </div>
 
@@ -391,7 +391,7 @@ export function OfferPage() {
 
           <div className="rounded-[2rem] border border-teal-200/60 bg-white p-6 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
             <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">Perguntas frequentes</p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">Tire as ultimas objeccoes antes do checkout</h2>
+            <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">Ainda com dúvidas? A gente te explica </h2>
 
             <div className="mt-6 space-y-3">
               {faqs.map((faq, index) => {
@@ -423,12 +423,12 @@ export function OfferPage() {
         <section className="rounded-[2.2rem] border border-teal-200/60 bg-slate-950 px-6 py-8 text-white shadow-[0_35px_90px_-45px_rgba(15,23,42,0.65)] sm:px-8">
           <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">Ultima chamada</p>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">Última chamada</p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-                Libere agora o Detox7 PRO por R$ 9,99 e direcione direto para o checkout.
+                Libere agora o Detox7 PRO por R$ 9,99.
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-                Pagamento seguro, acesso imediato e garantia de 7 dias para voce entrar com mais confianca.
+                Pagamento seguro, acesso imediato e garantia de 7 dias para você entrar com mais confiança.
               </p>
             </div>
 
