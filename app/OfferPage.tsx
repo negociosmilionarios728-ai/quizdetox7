@@ -38,7 +38,7 @@ const highlights = [
   {
     icon: Smartphone,
     title: "Tudo no celular",
-    text: "Acesse o conteudo quando quiser e acompanhe seu progresso no app.",
+    text: "Acesse o conteúdo quando quiser e acompanhe seu progresso no app.",
   },
 ]
 
@@ -219,7 +219,7 @@ export function OfferPage() {
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                O Detox7 PRO entrega uma experiência simples, guiada e feita para celular, com foco em leveza, rotina e acesso rapido ao que a pessoa precisa fazer.
+                O Detox7 PRO entrega uma experiência simples, guiada e feita para celular, com foco em leveza, rotina e acesso rápido ao que a pessoa precisa fazer.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -337,7 +337,7 @@ export function OfferPage() {
           <div className="rounded-[2rem] border border-teal-200/60 bg-white p-6 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
             <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">O que voce recebe</p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950">
-              Acesso completo ao Detox 7 Pro + bônus
+              Acesso ao Detox 7 Pro + bônus
             </h2>
 
             <div className="mt-6 space-y-4">
