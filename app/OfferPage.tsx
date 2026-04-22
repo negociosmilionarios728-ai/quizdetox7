@@ -32,7 +32,7 @@ const highlights = [
   },
   {
     icon: TrendingDown,
-    title: "Menos inchaco",
+    title: "Menos inchaço",
     text: "Foco em leveza, constância e praticidade no dia a dia.",
   },
   {
@@ -211,7 +211,7 @@ export function OfferPage() {
             <div className="relative">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-teal-700">
                 <Star className="h-4 w-4 fill-current" />
-                Aplicativo + bonus imediato
+                Aplicativo + bônus imediato
               </div>
 
               <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
@@ -337,7 +337,7 @@ export function OfferPage() {
           </div>
 
           <div className="rounded-[2rem] border border-teal-200/60 bg-white p-6 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">O que voce recebe</p>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">O que você recebe</p>
             <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950">
               Acesso ao Detox 7 Pro + bônus
             </h2>
