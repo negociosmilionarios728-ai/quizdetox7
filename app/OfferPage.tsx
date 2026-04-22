@@ -323,12 +323,14 @@ export function OfferPage() {
                 <button
                   type="button"
                   onClick={handleVideoOverlayPlay}
-                  className="absolute inset-0 z-10 flex items-center justify-center bg-slate-950/20 transition hover:bg-slate-950/35"
+                  className="absolute inset-0 z-10 flex items-center justify-center bg-white transition-all duration-300 hover:scale-[1.02]"
                   aria-label="Reproduzir video com audio"
                 >
-                  <span className="flex h-24 w-24 items-center justify-center rounded-full bg-white/95 shadow-2xl ring-8 ring-teal-400/20">
-                    <Play className="ml-1 h-10 w-10 fill-teal-600 text-teal-600" />
-                  </span>
+                  <img
+                    src="/images/video-poster.png"
+                    alt="Dê play no vídeo e descubra como funciona o Detox7 PRO"
+                    className="h-full w-full object-cover"
+                  />
                 </button>
               )}
             </div>
