@@ -357,11 +357,27 @@ export function OfferPage() {
                 </div>
               ))}
             </div>
+            <div className="mt-6 rounded-[2rem] border border-teal-200/70 bg-slate-950 p-6 text-white shadow-xl">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">Oferta ativa</p>
+                  <p className="mt-2 text-3xl font-black">R$ 9,99</p>
+                  <p className="mt-1 text-sm text-slate-300 line-through">De R$ 67,00 por tempo limitado</p>
+                </div>
+                <div className="rounded-full bg-red-500 px-4 py-3 text-center">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Desconto</p>
+                  <p className="text-2xl font-black">76%</p>
+                </div>
+              </div>
 
-            <div className="mt-6 rounded-[1.6rem] bg-gradient-to-r from-teal-50 via-white to-emerald-50 p-5">
-              <p className="text-sm leading-7 text-slate-600">
-    
-              </p>
+              <div className="mt-6 rounded-3xl border border-white/10 bg-white/5 p-4 text-center">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-teal-200">Esta oferta expira em</p>
+                <p className="mt-3 font-mono text-4xl font-black tracking-[0.18em]">{formatTime(timeLeft)}</p>
+              </div>
+
+              <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mt-6 mb-0`}>
+                Garantir oferta especial
+              </button>
             </div>
           </div>
         </section>
