@@ -177,7 +177,7 @@ export function OfferPage() {
   }
 
   const checkoutButtonClassName =
-    "w-full rounded-full bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-700 px-6 py-4 text-center text-base font-extrabold text-white shadow-[0_20px_40px_-20px_rgba(13,148,136,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-20px_rgba(13,148,136,0.95)]"
+    "w-full rounded-full bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-700 px-6 py-4 text-center text-base font-extrabold text-white shadow-[0_20px_40px_-20px_rgba(13,148,136,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-20px_rgba(13,148,136,0.95)] animate-glitch"
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,#d5faf5_0%,#eef7f6_38%,#f6f8f7_100%)] text-slate-900">
@@ -196,7 +196,7 @@ export function OfferPage() {
             <button
               type="button"
               onClick={handleCheckoutClick}
-              className="rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-800"
+              className="rounded-full bg-slate-950 px-4 py-2 text-sm font-bold text-white transition hover:bg-slate-800 animate-glitch"
             >
               Quero acesso
             </button>
