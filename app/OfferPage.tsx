@@ -183,12 +183,11 @@ export function OfferPage() {
     <div className="relative min-h-screen bg-[radial-gradient(circle_at_top,#d5faf5_0%,#eef7f6_38%,#f6f8f7_100%)] text-slate-900">
       {/* Background Image Layer */}
       <div 
-        className="fixed inset-0 z-0 opacity-[0.08] pointer-events-none"
+        className="fixed inset-0 z-0 opacity-[0.18] pointer-events-none"
         style={{
           backgroundImage: 'url(/images/page-bg.jpg)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundPosition: 'top center'
         }}
       />
       
