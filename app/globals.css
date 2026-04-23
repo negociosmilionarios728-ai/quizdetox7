@@ -121,6 +121,9 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
 @layer utilities {
   @keyframes glitch {
     0% { transform: translate(0); }
