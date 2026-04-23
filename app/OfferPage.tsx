@@ -180,8 +180,19 @@ export function OfferPage() {
     "w-full rounded-full bg-gradient-to-r from-teal-500 via-emerald-500 to-teal-700 px-6 py-4 text-center text-base font-extrabold text-white shadow-[0_20px_40px_-20px_rgba(13,148,136,0.85)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_24px_48px_-20px_rgba(13,148,136,0.95)] animate-glitch"
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,#d5faf5_0%,#eef7f6_38%,#f6f8f7_100%)] text-slate-900">
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 pb-28 pt-4 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen bg-[radial-gradient(circle_at_top,#d5faf5_0%,#eef7f6_38%,#f6f8f7_100%)] text-slate-900">
+      {/* Background Image Layer */}
+      <div 
+        className="fixed inset-0 z-0 opacity-[0.08] pointer-events-none"
+        style={{
+          backgroundImage: 'url(/images/page-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 pb-28 pt-4 sm:px-6 lg:px-8">
         <div className="sticky top-3 z-30 rounded-full border border-white/70 bg-white/85 px-4 py-3 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.45)] backdrop-blur">
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-3">
