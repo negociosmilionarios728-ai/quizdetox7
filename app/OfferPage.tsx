@@ -319,6 +319,48 @@ export function OfferPage() {
           </div>
         </section>
 
+        <section className="rounded-[2.5rem] bg-white p-8 border-2 border-teal-50 shadow-xl overflow-hidden relative">
+          <div className="absolute right-0 top-0 w-32 h-32 bg-teal-50 rounded-full -mr-16 -mt-16 blur-3xl opacity-50" />
+
+          <div className="relative z-10">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl font-black text-slate-900 sm:text-4xl tracking-tighter uppercase">
+                O QUE É O MÉTODO <span className="text-teal-600">DETOX7 PRO?</span>
+              </h2>
+            </div>
+
+            <div className="grid gap-8 sm:grid-cols-3">
+              {[
+                {
+                  icon: Sparkles,
+                  title: "Protocolo de 30 dias,
+                  text: "Um protocolo simples de 30 dias para desinchar e perder barriga
+                },
+                {
+                  icon: Smartphone,
+                  title: "Na palma da mão",
+                  text: "Um passo a passo diário no celular"
+                },
+                {
+                  icon: Clock3,
+                  title: "Foco em Praticidade",
+                  text: "Um sistema pensado para rotina corrida"
+                },
+              ].map(({ icon: Icon, title, text }) => (
+                <div key={title} className="group flex flex-col items-center text-center">
+                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-teal-50 text-teal-600 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                    <Icon className="h-10 w-10" />
+                  </div>
+                  <h3 className="text-sm font-black uppercase tracking-widest text-teal-700 mb-2">{title}</h3>
+                  <p className="text-lg font-bold text-slate-800 leading-tight">
+                    {text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="rounded-[2.5rem] border border-teal-200/60 bg-white/95 p-8 shadow-[0_45px_100px_-50px_rgba(15,23,42,0.4)] backdrop-blur-sm">
           <div className="text-center mb-10">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-teal-700">
