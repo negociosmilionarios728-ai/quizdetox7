@@ -333,7 +333,7 @@ export function OfferPage() {
               {[
                 {
                   icon: Sparkles,
-                  title: "Protocolo de 30 dias,
+                  title: "Protocolo de 30 dias
                   text: "Um protocolo simples de 30 dias para desinchar e perder barriga
                 },
                 {
