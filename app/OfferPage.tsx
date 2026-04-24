@@ -611,7 +611,7 @@ export function OfferPage() {
 
             <div className="w-full max-w-sm">
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
-                Quero liberar meu acesso
+                Quero perder barriga agora por R$9,99
               </button>
             </div>
           </div>
