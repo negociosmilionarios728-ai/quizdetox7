@@ -13,9 +13,10 @@ import {
   Star,
   Smartphone,
   TrendingDown,
-  ZapOff,
-  BatteryLow,
-  CloudRain,
+  Wind,
+  Moon,
+  Scale,
+  Brain,
 } from "lucide-react"
 import Image from "next/image"
 import { playClickSound } from "@/lib/audio"
@@ -255,7 +256,7 @@ export function OfferPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button onClick={handleCheckoutClick} className={checkoutButtonClassName}>
-                  Liberar meu acesso agora
+                  Quero destravar agora
                 </button>
               </div>
 
@@ -282,7 +283,7 @@ export function OfferPage() {
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">Oferta ativa</p>
                   <p className="mt-2 text-3xl font-black">R$ 9,99</p>
-                  <p className="mt-1 text-sm text-slate-300 line-through">De R$ 67,00 por tempo limitado</p>
+                  <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
                 <div className="rounded-full bg-red-500 px-4 py-3 text-center">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Desconto</p>
@@ -296,7 +297,7 @@ export function OfferPage() {
               </div>
 
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mt-6 mb-0`}>
-                Garantir oferta especial
+                Últimas vagas com desconto
               </button>
             </div>
 
@@ -332,10 +333,10 @@ export function OfferPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: ZapOff, text: "Barriga inchada e desconforto", color: "text-orange-400", bg: "bg-orange-400/10" },
-              { icon: BatteryLow, text: "Cansaço constante e falta de energia", color: "text-yellow-400", bg: "bg-yellow-400/10" },
-              { icon: TrendingDown, text: "Roupas apertando e autoestima baixa", color: "text-red-400", bg: "bg-red-400/10" },
-              { icon: CloudRain, text: "Falta de motivação para começar", color: "text-blue-400", bg: "bg-blue-400/10" },
+              { icon: Wind, text: "Barriga inchada e desconforto", color: "text-orange-400", bg: "bg-orange-400/10" },
+              { icon: Moon, text: "Cansaço constante e falta de energia", color: "text-yellow-400", bg: "bg-yellow-400/10" },
+              { icon: Scale, text: "Roupas apertando e autoestima baixa", color: "text-red-400", bg: "bg-red-400/10" },
+              { icon: Brain, text: "Falta de motivação para começar", color: "text-blue-400", bg: "bg-blue-400/10" },
             ].map(({ icon: Icon, text, color, bg }) => (
               <div key={text} className={`flex flex-col items-center gap-4 rounded-3xl border border-white/10 ${bg} p-6 text-center transition-all duration-300 hover:scale-105 hover:border-white/20`}>
                 <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 ${color}`}>
@@ -345,7 +346,7 @@ export function OfferPage() {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-12 text-center relative z-10">
             <div className="inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-2 text-sm font-bold text-teal-400 border border-teal-500/20">
               <Sparkles className="h-4 w-4" />
@@ -370,7 +371,7 @@ export function OfferPage() {
 
           <div className="group relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border-4 border-white transition-transform duration-500 hover:scale-[1.01]">
             <Image
-              src="/images/transformation.png"
+              src="/images/transformation.jpg"
               alt="Antes e Depois da transformação com Detox7 PRO"
               width={1200}
               height={800}
@@ -387,7 +388,7 @@ export function OfferPage() {
               Pronto(a) para começar sua própria história de sucesso?
             </p>
             <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} max-w-md`}>
-              Sim! Quero começar agora
+              Quero perder barriga ainda essa semana!
             </button>
           </div>
         </section>
@@ -458,7 +459,7 @@ export function OfferPage() {
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">Oferta ativa</p>
                   <p className="mt-2 text-3xl font-black">R$ 9,99</p>
-                  <p className="mt-1 text-sm text-slate-300 line-through">De R$ 67,00 por tempo limitado</p>
+                  <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
                 <div className="rounded-full bg-red-500 px-4 py-3 text-center">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Desconto</p>
@@ -472,7 +473,7 @@ export function OfferPage() {
               </div>
 
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mt-6 mb-0`}>
-                Garantir oferta especial
+                Últimas vagas com desconto
               </button>
             </div>
           </div>
