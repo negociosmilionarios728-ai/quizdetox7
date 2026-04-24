@@ -237,7 +237,7 @@ export function OfferPage() {
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                Um método guiado no seu celular que te mostra exatamente o que fazer todos os dias para desinchar e perder medidas.
+                Um método guiado no seu celular que mostra exatamente o que fazer todos os dias para desinchar, perder barriga e começar a ver resultado rápido.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -443,7 +443,7 @@ export function OfferPage() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
                 <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                  Veja como pessoas comuns estão desinchando em poucos dias
+                  Veja como pessoas estão perdendo barriga em poucos dias usando o Método Detox7 PRO
                 </h2>
               </div>
               <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
