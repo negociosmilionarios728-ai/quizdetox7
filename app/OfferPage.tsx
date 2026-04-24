@@ -13,6 +13,9 @@ import {
   Star,
   Smartphone,
   TrendingDown,
+  ZapOff,
+  BatteryLow,
+  CloudRain,
 } from "lucide-react"
 import Image from "next/image"
 import { playClickSound } from "@/lib/audio"
@@ -29,17 +32,17 @@ const highlights = [
   {
     icon: Flame,
     title: "Rotina guiada",
-    text: "Receba o que fazer em cada etapa sem precisar montar dieta sozinho(a).",
+    text: "Um plano pronto que te mostra exatamente o que fazer para começar a secar sem esforço.",
   },
   {
     icon: TrendingDown,
     title: "Menos inchaço",
-    text: "Foco em leveza, constância e praticidade no dia a dia.",
+    text: "Diga adeus à barriga inchada e volte a se sentir leve em poucos dias.",
   },
   {
     icon: Smartphone,
     title: "Tudo no celular",
-    text: "Acesse o conteúdo quando quiser e acompanhe seu progresso no app.",
+    text: "Tudo organizado no seu celular para você seguir e ver resultado mesmo com rotina corrida.",
   },
 ]
 
@@ -313,6 +316,45 @@ export function OfferPage() {
             </div>
           </div>
         </section>
+
+        <section className="rounded-[2.5rem] border border-teal-200/60 bg-white/95 p-8 shadow-[0_45px_100px_-50px_rgba(15,23,42,0.4)] backdrop-blur-sm">
+          <div className="text-center mb-10">
+            <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-teal-700">
+              <Sparkles className="h-4 w-4" />
+              Resultados Reais
+            </div>
+            <h2 className="text-3xl font-black text-slate-950 sm:text-5xl tracking-tight">
+              A transformação que você busca está aqui
+            </h2>
+            <p className="mt-5 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              O Detox7 PRO não é apenas um guia, é o caminho para recuperar sua autoestima e se sentir leve novamente em apenas 30 dias.
+            </p>
+          </div>
+
+          <div className="group relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border-4 border-white transition-transform duration-500 hover:scale-[1.01]">
+            <Image
+              src="/images/transformation.png"
+              alt="Antes e Depois da transformação com Detox7 PRO"
+              width={1200}
+              height={800}
+              className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-teal-500 text-white px-8 py-3 rounded-full font-black shadow-2xl scale-110">
+              RESULTADO EM 30 DIAS
+            </div>
+          </div>
+
+          <div className="mt-12 flex flex-col items-center justify-center gap-6 text-center">
+            <p className="text-xl font-bold text-slate-800">
+              Pronto(a) para começar sua própria história de sucesso?
+            </p>
+            <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} max-w-md`}>
+              Sim! Quero começar agora
+            </button>
+          </div>
+        </section>
+
 
         <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rounded-[2rem] border border-teal-200/60 bg-white/90 p-5 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
