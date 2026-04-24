@@ -14,6 +14,7 @@ import {
   Smartphone,
   TrendingDown,
 } from "lucide-react"
+import Image from "next/image"
 import { playClickSound } from "@/lib/audio"
 import { buildCheckoutUrl } from "@/lib/tracking"
 
@@ -182,15 +183,18 @@ export function OfferPage() {
   return (
     <div className="relative min-h-screen bg-[radial-gradient(circle_at_top,#d5faf5_0%,#eef7f6_38%,#f6f8f7_100%)] text-slate-900">
       {/* Background Image Layer */}
-      <div 
-        className="fixed inset-0 z-0 opacity-100 pointer-events-none"
-        style={{
-          backgroundImage: 'url(/images/page-bg.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'top center'
-        }}
-      />
-      
+      <div className="fixed inset-0 z-0 opacity-100 pointer-events-none">
+        <Image
+          src="/images/page-bg.jpg"
+          alt="Background"
+          fill
+          priority
+          style={{ objectFit: 'cover', objectPosition: 'top center' }}
+          sizes="100vw"
+          quality={75}
+        />
+      </div>
+
       <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 pb-28 pt-4 sm:px-6 lg:px-8">
         <div className="sticky top-3 z-30 rounded-full border border-white/70 bg-white/85 px-4 py-3 shadow-[0_18px_50px_-30px_rgba(15,23,42,0.45)] backdrop-blur">
           <div className="flex items-center justify-between gap-3">
@@ -225,11 +229,11 @@ export function OfferPage() {
               </div>
 
               <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
-                Você não precisa de dieta complicada para ter mais energia e leveza no dia a dia.
+                O método simples que está ajudando pessoas a secar em casa.
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                O Detox7 PRO entrega uma experiência simples, guiada e feita para celular, com foco em leveza, rotina e acesso rápido ao que a pessoa precisa fazer.
+                Um guia prático no seu celular que te mostra exatamente o que fazer para desinchar, recuperar a leveza e voltar a se sentir bem com seu corpo.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -336,10 +340,13 @@ export function OfferPage() {
                   className="absolute inset-0 z-10 flex items-center justify-center transition-all duration-300 hover:scale-[1.01]"
                   aria-label="Reproduzir video com audio"
                 >
-                  <img
+                  <Image
                     src="/images/video-poster.png"
                     alt="Dê play no vídeo e descubra como funciona o Detox7 PRO"
-                    className="h-full w-full object-contain"
+                    fill
+                    style={{ objectFit: 'contain' }}
+                    sizes="(max-width: 768px) 100vw, 800px"
+                    priority
                   />
                 </button>
               )}
@@ -409,9 +416,11 @@ export function OfferPage() {
             </div>
 
             <div className="mt-5 cursor-pointer" onClick={() => setIsTestimonialsZoomed(true)}>
-              <img
+              <Image
                 src="/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg"
                 alt="Depoimentos de clientes sobre o Detox7 PRO"
+                width={800}
+                height={450}
                 className="w-full rounded-[1.6rem] shadow-lg transition duration-300 hover:scale-[1.01]"
               />
             </div>
@@ -480,9 +489,11 @@ export function OfferPage() {
               <span className="text-xl font-bold">×</span>
             </button>
 
-            <img
+            <Image
               src="/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg"
               alt="Depoimentos de clientes"
+              width={1200}
+              height={800}
               className="h-full w-full rounded-[1.5rem] object-contain"
             />
           </div>

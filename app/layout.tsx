@@ -37,13 +37,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" translate="no">
+      <head>
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="preconnect" href="https://scripts.clarity.ms" />
+        <link rel="preconnect" href="https://cdn.utmify.com.br" />
+        <link rel="preconnect" href="https://www.facebook.com" />
+      </head>
       <body className={`font-sans antialiased`}>
         <TrackingBootstrap />
         {children}
         <Analytics />
         
         {/* Microsoft Clarity */}
-        <Script id="clarity-script" strategy="afterInteractive">
+        <Script id="clarity-script" strategy="lazyOnload">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -54,7 +60,7 @@ export default function RootLayout({
         </Script>
 
         {/* Meta Pixel */}
-        <Script id="meta-pixel" strategy="afterInteractive">
+        <Script id="meta-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -84,7 +90,7 @@ export default function RootLayout({
           src="https://cdn.utmify.com.br/scripts/utms/latest.js"
           data-utmify-prevent-xcod-sck
           data-utmify-prevent-subids
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </body>
     </html>
