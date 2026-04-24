@@ -317,6 +317,43 @@ export function OfferPage() {
           </div>
         </section>
 
+        <section className="rounded-[2.5rem] bg-slate-950 p-8 text-white shadow-2xl overflow-hidden relative">
+          <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-teal-500/20 blur-[100px]" />
+          <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-emerald-500/10 blur-[100px]" />
+
+          <div className="relative z-10 text-center mb-12">
+            <h2 className="text-3xl font-black sm:text-4xl tracking-tight">
+              Você se sente assim hoje?
+            </h2>
+            <p className="mt-4 text-slate-400 text-lg">
+              Se você se identifica com um desses sinais, seu corpo está pedindo ajuda.
+            </p>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: ZapOff, text: "Barriga inchada e desconforto", color: "text-orange-400", bg: "bg-orange-400/10" },
+              { icon: BatteryLow, text: "Cansaço constante e falta de energia", color: "text-yellow-400", bg: "bg-yellow-400/10" },
+              { icon: TrendingDown, text: "Roupas apertando e autoestima baixa", color: "text-red-400", bg: "bg-red-400/10" },
+              { icon: CloudRain, text: "Falta de motivação para começar", color: "text-blue-400", bg: "bg-blue-400/10" },
+            ].map(({ icon: Icon, text, color, bg }) => (
+              <div key={text} className={`flex flex-col items-center gap-4 rounded-3xl border border-white/10 ${bg} p-6 text-center transition-all duration-300 hover:scale-105 hover:border-white/20`}>
+                <div className={`flex h-14 w-14 items-center justify-center rounded-2xl bg-white/5 ${color}`}>
+                  <Icon className="h-7 w-7" />
+                </div>
+                <p className="font-bold leading-tight">{text}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center relative z-10">
+            <div className="inline-flex items-center gap-2 rounded-full bg-teal-500/10 px-4 py-2 text-sm font-bold text-teal-400 border border-teal-500/20">
+              <Sparkles className="h-4 w-4" />
+              O Detox7 PRO foi criado exatamente para resolver isso.
+            </div>
+          </div>
+        </section>
+
         <section className="rounded-[2.5rem] border border-teal-200/60 bg-white/95 p-8 shadow-[0_45px_100px_-50px_rgba(15,23,42,0.4)] backdrop-blur-sm">
           <div className="text-center mb-10">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-teal-700">
