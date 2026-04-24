@@ -237,7 +237,7 @@ export function OfferPage() {
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                Um guia prático no seu celular que te mostra exatamente o que fazer para desinchar, recuperar a leveza e voltar a se sentir bem com seu corpo.
+                Um método guiado no seu celular que te mostra exatamente o que fazer todos os dias para desinchar e perder medidas.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -326,7 +326,7 @@ export function OfferPage() {
               Resultados Reais
             </div>
             <h2 className="text-3xl font-black text-slate-950 sm:text-5xl tracking-tight">
-              A transformação que você busca está aqui
+              Resultados reais com o Método Detox7 PRO
             </h2>
             <p className="mt-5 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
               O Detox7 PRO não é apenas um guia, é o caminho para recuperar sua autoestima e se sentir leve novamente em apenas 30 dias.
