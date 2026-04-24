@@ -233,7 +233,7 @@ export function OfferPage() {
               </div>
 
               <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
-                Como desinchar e perder barriga em poucos dias sem dieta maluca
+                Como desinchar e perder barriga em poucos dias sem dieta maluca com o Método Detox 7PRO
               </h1>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
@@ -401,7 +401,7 @@ export function OfferPage() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
                 <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                  Veja na prática como o Detox 7 Pro funciona
+                  Veja como pessoas comuns estão desinchando em poucos dias
                 </h2>
               </div>
               <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
