@@ -236,6 +236,19 @@ export function OfferPage() {
                 Como desinchar e perder barriga em poucos dias sem dieta maluca com o Método Detox7 PRO
               </h1>
 
+              <div className="mt-4 flex items-center gap-3">
+                <div className="flex text-yellow-400">
+                  <Star className="h-4 w-4 fill-current" />
+                  <Star className="h-4 w-4 fill-current" />
+                  <Star className="h-4 w-4 fill-current" />
+                  <Star className="h-4 w-4 fill-current" />
+                  <Star className="h-4 w-4 fill-current" />
+                </div>
+                <p className="text-sm font-bold text-slate-700">
+                  +3.000 pessoas já começaram
+                </p>
+              </div>
+
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
                 Um método guiado no seu celular que mostra exatamente o que fazer todos os dias para desinchar, perder barriga e começar a ver resultado rápido.
               </p>
@@ -384,8 +397,11 @@ export function OfferPage() {
               className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-teal-500 text-white px-8 py-3 rounded-full font-black shadow-2xl scale-110">
-              RESULTADO EM 30 DIAS
+
+            <div className="absolute bottom-6 right-6 z-20 transition-transform duration-500 group-hover:scale-110 sm:bottom-10 sm:right-10">
+              <div className="bg-emerald-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-2xl font-black shadow-2xl border-2 border-white transform rotate-2 animate-bounce">
+                -5kg em 30 dias
+              </div>
             </div>
           </div>
 
@@ -586,7 +602,7 @@ export function OfferPage() {
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">Última chamada</p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-                Libere agora o Detox7 PRO por R$ 9,99.
+                Somente HOJE o Detox7 PRO por R$ 9,99
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
                 Pagamento seguro, acesso imediato e garantia de 7 dias para você entrar com mais confiança.
