@@ -281,7 +281,7 @@ export function OfferPage() {
             <div className="rounded-[2rem] border border-teal-200/70 bg-slate-950 p-6 text-white shadow-[0_35px_90px_-45px_rgba(15,23,42,0.65)]">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">Oferta ativa</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">SOMENTE HOJE</p>
                   <p className="mt-2 text-3xl font-black">R$ 9,99</p>
                   <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
@@ -457,7 +457,7 @@ export function OfferPage() {
             <div className="mt-24 rounded-[2rem] border border-teal-200/70 bg-slate-950 p-6 text-white shadow-xl">
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">Oferta ativa</p>
+                  <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">SOMENTE HOJE</p>
                   <p className="mt-2 text-3xl font-black">R$ 9,99</p>
                   <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
