@@ -531,7 +531,7 @@ export function OfferPage() {
                 </div>
                 <div className="rounded-full bg-red-500 px-4 py-3 text-center">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Desconto</p>
-                  <p className="text-2xl font-black">90%</p>
+                  <p className="text-2xl font-black">80%</p>
                 </div>
               </div>
 
