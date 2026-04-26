@@ -295,7 +295,7 @@ export function OfferPage() {
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">SOMENTE HOJE</p>
-                  <p className="mt-2 text-3xl font-black">R$ 9,99</p>
+                  <p className="mt-2 text-3xl font-black">R$ 19,90</p>
                   <p className="text-[10px] font-bold text-teal-200/80 uppercase tracking-widest mt-1">Mais barato que um café</p>
                   <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
@@ -525,7 +525,7 @@ export function OfferPage() {
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">SOMENTE HOJE</p>
-                  <p className="mt-2 text-3xl font-black">R$ 9,99</p>
+                  <p className="mt-2 text-3xl font-black">R$ 19,90</p>
                   <p className="text-[10px] font-bold text-teal-200/80 uppercase tracking-widest mt-1">Mais barato que um café</p>
                   <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
@@ -610,7 +610,7 @@ export function OfferPage() {
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">Última chamada</p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-                Somente HOJE o Detox7 PRO por R$ 9,99
+                Somente HOJE o Detox7 PRO por R$ 19,90
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
                 Pagamento seguro, acesso imediato e garantia de 7 dias para você entrar com mais confiança.
@@ -619,7 +619,7 @@ export function OfferPage() {
 
             <div className="w-full max-w-sm">
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
-                Quero perder barriga agora por R$9,99
+                Quero perder barriga agora por R$19,90
               </button>
             </div>
           </div>
