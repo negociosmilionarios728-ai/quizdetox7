@@ -195,7 +195,7 @@ export function OfferPage() {
           priority
           style={{ objectFit: 'cover', objectPosition: 'top center' }}
           sizes="100vw"
-          quality={75}
+          quality={45}
         />
       </div>
 
@@ -395,6 +395,8 @@ export function OfferPage() {
               width={1200}
               height={800}
               className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 800px"
+              quality={65}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
@@ -468,7 +470,7 @@ export function OfferPage() {
             </div>
 
             <div className="relative overflow-hidden rounded-[1.6rem] border border-teal-500/20 bg-slate-950 shadow-lg">
-              <video ref={videoRef} className="w-full h-auto" controls playsInline preload="metadata">
+              <video ref={videoRef} className="w-full h-auto" controls playsInline preload="none">
                 <source src="/videoapp.mp4" type="video/mp4" />
                 Seu navegador nao suporta video.
               </video>
@@ -485,7 +487,8 @@ export function OfferPage() {
                     fill
                     style={{ objectFit: 'contain' }}
                     sizes="(max-width: 768px) 100vw, 800px"
-                    priority
+                    loading="lazy"
+                    quality={60}
                   />
                 </button>
               )}

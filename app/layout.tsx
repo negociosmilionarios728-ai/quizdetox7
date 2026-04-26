@@ -5,8 +5,15 @@ import Script from 'next/script'
 import { TrackingBootstrap } from '@/components/tracking-bootstrap'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: 'Reset 30 Dias | Detox7 PRO',
@@ -36,14 +43,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" translate="no">
+    <html lang="pt-BR" translate="no" className={`${geistSans.variable} ${geistMono.variable}`}>
       <head>
-        <link rel="preconnect" href="https://connect.facebook.net" />
-        <link rel="preconnect" href="https://scripts.clarity.ms" />
-        <link rel="preconnect" href="https://cdn.utmify.com.br" />
-        <link rel="preconnect" href="https://www.facebook.com" />
+        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://scripts.clarity.ms" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://cdn.utmify.com.br" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.facebook.com" crossOrigin="anonymous" />
       </head>
-      <body className={`font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <TrackingBootstrap />
         {children}
         <Analytics />
