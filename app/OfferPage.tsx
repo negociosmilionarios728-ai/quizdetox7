@@ -526,7 +526,7 @@ export function OfferPage() {
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">SOMENTE HOJE</p>
                   <p className="mt-2 text-3xl font-black">R$ 19,90</p>
-                  <p className="text-[10px] font-bold text-teal-200/80 uppercase tracking-widest mt-1">Mais barato que um café</p>
+                  <p className="text-[10px] font-bold text-teal-200/80 uppercase tracking-widest mt-1">Mais barato que um lanched</p>
                   <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
                 <div className="rounded-full bg-red-500 px-4 py-3 text-center">
