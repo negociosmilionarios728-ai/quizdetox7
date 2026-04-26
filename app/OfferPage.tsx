@@ -295,7 +295,7 @@ export function OfferPage() {
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">SOMENTE HOJE</p>
-                  <p className="mt-2 text-3xl font-black">R$ 19,90</p>
+                  <p className="mt-2 text-3xl font-black">R$ 9,99</p>
                   <p className="text-[10px] font-bold text-teal-200/80 uppercase tracking-widest mt-1">Mais barato que um lanche</p>
                   <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
@@ -525,13 +525,13 @@ export function OfferPage() {
               <div className="flex items-center justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-200">SOMENTE HOJE</p>
-                  <p className="mt-2 text-3xl font-black">R$ 19,90</p>
+                  <p className="mt-2 text-3xl font-black">R$ 9,99</p>
                   <p className="text-[10px] font-bold text-teal-200/80 uppercase tracking-widest mt-1">Mais barato que um lanche</p>
                   <p className="mt-1 text-sm text-slate-300 line-through">De R$ 97,00 por tempo limitado</p>
                 </div>
                 <div className="rounded-full bg-red-500 px-4 py-3 text-center">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Desconto</p>
-                  <p className="text-2xl font-black">80%</p>
+                  <p className="text-2xl font-black">90%</p>
                 </div>
               </div>
 
@@ -619,7 +619,7 @@ export function OfferPage() {
 
             <div className="w-full max-w-sm">
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
-                Quero perder barriga agora por R$19,90
+                Quero perder barriga agora por R$9,99
               </button>
             </div>
           </div>
