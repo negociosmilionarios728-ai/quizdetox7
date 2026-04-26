@@ -610,7 +610,7 @@ export function OfferPage() {
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">Última chamada</p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-                Somente HOJE o Detox7 PRO por R$ 19,90
+                Somente HOJE o Detox7 PRO por R$ 9,99
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
                 Pagamento seguro, acesso imediato e garantia de 7 dias para você entrar com mais confiança.
