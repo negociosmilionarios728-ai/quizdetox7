@@ -469,8 +469,8 @@ export function OfferPage() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[1.6rem] border border-teal-500/20 bg-slate-950 shadow-lg">
-              <video ref={videoRef} className="w-full h-auto" controls playsInline preload="none">
+            <div className="relative mx-auto max-w-[320px] overflow-hidden rounded-[1.6rem] border border-teal-500/20 bg-slate-950 shadow-lg aspect-[9/16]">
+              <video ref={videoRef} className="h-full w-full object-cover" controls playsInline preload="metadata">
                 <source src="/videoapp.mp4" type="video/mp4" />
                 Seu navegador nao suporta video.
               </video>
@@ -485,11 +485,16 @@ export function OfferPage() {
                     src="/images/video-poster.png"
                     alt="Dê play no vídeo e descubra como funciona o Detox7 PRO"
                     fill
-                    style={{ objectFit: 'contain' }}
-                    sizes="(max-width: 768px) 100vw, 800px"
+                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 768px) 100vw, 320px"
                     loading="lazy"
-                    quality={60}
+                    quality={70}
                   />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-teal-500/90 text-white shadow-xl backdrop-blur-sm transition-transform group-hover:scale-110">
+                      <Play className="h-8 w-8 fill-current ml-1" />
+                    </div>
+                  </div>
                 </button>
               )}
             </div>
