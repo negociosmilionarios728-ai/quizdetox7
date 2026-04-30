@@ -431,7 +431,7 @@ export function OfferPage() {
               Pronto(a) para começar sua própria história de sucesso?
             </p>
             <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} max-w-md`}>
-              Ver como funciona o método ainda essa semana!
+              Ver como funciona o método por R$ 9,99 ainda hoje!
             </button>
           </div>
         </section>
