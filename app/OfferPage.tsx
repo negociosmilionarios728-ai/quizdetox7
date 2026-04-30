@@ -271,7 +271,7 @@ export function OfferPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button onClick={handleCheckoutClick} className={checkoutButtonClassName}>
-                  Quero começar minha rotina agora
+                  Ver como funciona o método
                 </button>
               </div>
 
@@ -389,6 +389,7 @@ export function OfferPage() {
 
         <section className="rounded-[2.5rem] border border-teal-200/60 bg-white/95 p-8 shadow-[0_45px_100px_-50px_rgba(15,23,42,0.4)] backdrop-blur-sm">
           <div className="text-center mb-10">
+            <p className="mb-4 text-sm font-bold text-teal-600">Resultados percebidos por quem seguiu a rotina</p>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-100 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-teal-700">
               <Sparkles className="h-4 w-4" />
               Resultados Reais
@@ -430,7 +431,7 @@ export function OfferPage() {
               Pronto(a) para começar sua própria história de sucesso?
             </p>
             <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} max-w-md`}>
-              Quero começar minha rotina ainda essa semana!
+              Ver como funciona o método ainda essa semana!
             </button>
           </div>
         </section>
@@ -569,8 +570,9 @@ export function OfferPage() {
           <div className="overflow-hidden rounded-[2rem] border border-teal-200/60 bg-white p-5 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
             <div className="flex items-center justify-between gap-4">
               <div>
+                <p className="mb-2 text-sm font-bold text-teal-600">Relatos de quem começou a aplicar a rotina no dia a dia</p>
                 <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">Prova social</p>
-                <h2 className="mt-2 text-2xl font-black text-slate-950">Olha isso 👇</h2>
+                <h2 className="mt-2 text-2xl font-black text-slate-950">Olha o que estão falando 👇</h2>
               </div>
               <button
                 type="button"
@@ -635,9 +637,12 @@ export function OfferPage() {
               </p>
             </div>
 
-            <div className="w-full max-w-sm">
+            <div className="w-full max-w-sm text-center lg:text-right">
+              <p className="mb-4 text-sm font-bold text-slate-300">
+                Você não precisa mudar tudo de uma vez. Só começar.
+              </p>
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
-                Quero começar minha rotina agora por R$9,99
+                Ver como funciona o método por R$9,99
               </button>
             </div>
           </div>
