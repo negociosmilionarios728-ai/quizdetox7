@@ -400,6 +400,11 @@ export function OfferPage() {
             </p>
           </div>
 
+          <div className="text-center mb-4">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
+              Evolução ao longo da rotina
+            </p>
+          </div>
           <div className="group relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border-4 border-white transition-transform duration-500 hover:scale-[1.01]">
             <Image
               src="/images/transformation.jpg"
