@@ -419,11 +419,7 @@ export function OfferPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-            <div className="absolute bottom-6 right-6 z-20 transition-transform duration-500 group-hover:scale-110 sm:bottom-10 sm:right-10">
-              <div className="bg-emerald-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-2xl font-black shadow-2xl border-2 border-white transform rotate-2 animate-bounce">
-                -5kg em 30 dias
-              </div>
-            </div>
+
           </div>
 
           <div className="mt-12 flex flex-col items-center justify-center gap-6 text-center">
@@ -639,10 +635,10 @@ export function OfferPage() {
 
             <div className="w-full max-w-sm text-center lg:text-right">
               <p className="mb-4 text-sm font-bold text-slate-300">
-                Você não precisa mudar tudo de uma vez. Só começar.
+                Você não precisa mudar tudo. Só começar hoje.
               </p>
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
-                Ver como funciona o método por R$9,99
+                Começar agora por R$9,99
               </button>
             </div>
           </div>
