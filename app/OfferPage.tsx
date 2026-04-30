@@ -582,7 +582,7 @@ export function OfferPage() {
 
             <div className="mt-5 cursor-pointer" onClick={() => setIsTestimonialsZoomed(true)}>
               <Image
-                src="/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg"
+                src="/images/nova-prova-social.png"
                 alt="Depoimentos de clientes sobre o Detox7 PRO"
                 width={800}
                 height={450}
@@ -655,7 +655,7 @@ export function OfferPage() {
             </button>
 
             <Image
-              src="/images/a-20parte-20de-20mente-20e-20corpo-20juntas-20fez-20sentido-20pra-20mim.jpg"
+              src="/images/nova-prova-social.png"
               alt="Depoimentos de clientes"
               width={1200}
               height={800}
