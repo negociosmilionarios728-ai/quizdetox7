@@ -23,10 +23,10 @@ import { playClickSound } from "@/lib/audio"
 import { buildCheckoutUrl } from "@/lib/tracking"
 
 const benefits = [
-  "Plano guiado para 30 dias com tarefas simples",
-  "Receitas detox e emagrecimento dentro do app",
-  "Análise de calorias para tomar decisões melhores",
-  "Bônus com ebook de 70 receitas para acelerar resultados",
+  "Sensação de leveza",
+  "Menos desconforto",
+  "Mais energia",
+  "Rotina equilibrada",
 ]
 
 const highlights = [
@@ -233,7 +233,8 @@ export function OfferPage() {
               </div>
 
               <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
-                Como desinchar e perder barriga em poucos dias sem dieta maluca com o Método Detox7 PRO
+                Não é sobre dieta.<br />
+                É sobre se sentir mais leve todos os dias.
               </h1>
 
               <div className="mt-4 flex items-center gap-3">
@@ -250,7 +251,7 @@ export function OfferPage() {
               </div>
 
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-                Um método guiado no seu celular que mostra exatamente o que fazer todos os dias para desinchar, perder barriga e começar a ver resultado rápido.
+                Um método simples guiado pelo celular para melhorar sua rotina e reduzir a sensação de inchaço.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -269,7 +270,7 @@ export function OfferPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button onClick={handleCheckoutClick} className={checkoutButtonClassName}>
-                  Quero perder barriga agora
+                  Quero me sentir mais leve
                 </button>
               </div>
 
@@ -347,7 +348,7 @@ export function OfferPage() {
                 {
                   icon: Sparkles,
                   title: "Protocolo de 30 dias",
-                  text: "Um protocolo simples de 30 dias para desinchar e perder barriga"
+                  text: "Um protocolo simples de 30 dias para desinchar e se sentir mais leve"
                 },
                 {
                   icon: Smartphone,
@@ -412,7 +413,7 @@ export function OfferPage() {
               Pronto(a) para começar sua própria história de sucesso?
             </p>
             <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} max-w-md`}>
-              Quero perder barriga ainda essa semana!
+              Quero me sentir mais leve ainda essa semana!
             </button>
           </div>
         </section>
@@ -432,9 +433,9 @@ export function OfferPage() {
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { icon: Wind, text: "Barriga inchada e desconforto", color: "text-orange-400", bg: "bg-orange-400/10" },
-              { icon: Moon, text: "Cansaço constante e falta de energia", color: "text-yellow-400", bg: "bg-yellow-400/10" },
-              { icon: Scale, text: "Roupas apertando e autoestima baixa", color: "text-red-400", bg: "bg-red-400/10" },
+              { icon: Wind, text: "Sensação de estufamento", color: "text-orange-400", bg: "bg-orange-400/10" },
+              { icon: Moon, text: "Desconforto abdominal", color: "text-yellow-400", bg: "bg-yellow-400/10" },
+              { icon: Scale, text: "Corpo pesado ao longo do dia", color: "text-red-400", bg: "bg-red-400/10" },
               { icon: Brain, text: "Falta de motivação para começar", color: "text-blue-400", bg: "bg-blue-400/10" },
             ].map(({ icon: Icon, text, color, bg }) => (
               <div key={text} className={`flex flex-col items-center gap-4 rounded-3xl border border-white/10 ${bg} p-6 text-center transition-all duration-300 hover:scale-105 hover:border-white/20`}>
@@ -461,7 +462,7 @@ export function OfferPage() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
                 <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                  Veja como pessoas estão perdendo barriga em poucos dias usando o Método Detox7 PRO
+                  Veja como pessoas estão se sentindo mais leves em poucos dias usando o Método Detox7 PRO
                 </h2>
               </div>
               <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
@@ -619,7 +620,7 @@ export function OfferPage() {
 
             <div className="w-full max-w-sm">
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
-                Quero perder barriga agora por R$9,99
+                Quero me sentir mais leve por R$9,99
               </button>
             </div>
           </div>
