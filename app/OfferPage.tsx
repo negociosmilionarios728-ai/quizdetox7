@@ -270,8 +270,14 @@ export function OfferPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button onClick={handleCheckoutClick} className={checkoutButtonClassName}>
-                  Quero me sentir mais leve
+                  Quero começar minha rotina agora
                 </button>
+              </div>
+
+              <div className="mt-4 flex flex-col items-center gap-2">
+                <p className="text-sm font-bold text-slate-700 text-center">
+                  🔥 A maioria das pessoas começa a sentir diferença já nos primeiros dias.
+                </p>
               </div>
 
               <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-slate-500">
@@ -339,34 +345,39 @@ export function OfferPage() {
           <div className="relative z-10">
             <div className="text-center mb-12">
               <h2 className="text-2xl font-black text-slate-900 sm:text-4xl tracking-tighter uppercase">
-                O QUE É O MÉTODO <span className="text-teal-600">DETOX7 PRO?</span>
+                COMO FUNCIONA O <span className="text-teal-600">MÉTODO?</span>
               </h2>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
-                  icon: Sparkles,
-                  title: "Protocolo de 30 dias",
-                  text: "Um protocolo simples de 30 dias para desinchar e se sentir mais leve"
+                  icon: Clock3,
+                  title: "Na prática",
+                  text: "Pequenas ações diárias"
+                },
+                {
+                  icon: Brain,
+                  title: "Sem dieta maluca",
+                  text: "Foco em hábitos simples"
                 },
                 {
                   icon: Smartphone,
                   title: "Na palma da mão",
-                  text: "Um passo a passo diário no celular"
+                  text: "Rotina guiada pelo celular"
                 },
                 {
-                  icon: Clock3,
-                  title: "Foco em Praticidade",
-                  text: "Um sistema pensado para rotina corrida"
+                  icon: Sparkles,
+                  title: "Você não está só",
+                  text: "Acompanhamento passo a passo"
                 },
               ].map(({ icon: Icon, title, text }) => (
                 <div key={title} className="group flex flex-col items-center text-center">
-                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-teal-50 text-teal-600 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
-                    <Icon className="h-10 w-10" />
+                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-3xl bg-teal-50 text-teal-600 transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
+                    <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="text-sm font-black uppercase tracking-widest text-teal-700 mb-2">{title}</h3>
-                  <p className="text-lg font-bold text-slate-800 leading-tight">
+                  <h3 className="text-xs font-black uppercase tracking-widest text-teal-700 mb-2">{title}</h3>
+                  <p className="text-base font-bold text-slate-800 leading-tight">
                     {text}
                   </p>
                 </div>
@@ -413,7 +424,7 @@ export function OfferPage() {
               Pronto(a) para começar sua própria história de sucesso?
             </p>
             <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} max-w-md`}>
-              Quero me sentir mais leve ainda essa semana!
+              Quero começar minha rotina ainda essa semana!
             </button>
           </div>
         </section>
@@ -620,7 +631,7 @@ export function OfferPage() {
 
             <div className="w-full max-w-sm">
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
-                Quero me sentir mais leve por R$9,99
+                Quero começar minha rotina agora por R$9,99
               </button>
             </div>
           </div>
