@@ -232,6 +232,7 @@ export function OfferPage() {
                 Aplicativo + bônus imediato
               </div>
 
+              <p className="mb-2 text-lg font-bold text-teal-600">A maioria das pessoas acha que é dieta...</p>
               <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
                 Não é sobre dieta.<br />
                 É sobre se sentir mais leve todos os dias.
