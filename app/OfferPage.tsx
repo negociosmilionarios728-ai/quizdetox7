@@ -475,7 +475,7 @@ export function OfferPage() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
                 <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                  Veja como pessoas estão se sentindo mais leves em poucos dias
+                  Veja como funciona na prática
                 </h2>
               </div>
               <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
@@ -632,14 +632,14 @@ export function OfferPage() {
               </p>
             </div>
 
-            <div className="w-full max-w-sm text-center lg:text-right">
+            <div className="w-full max-w-sm text-center">
               <p className="mb-4 text-sm font-bold text-slate-300">
                 Você não precisa mudar tudo. Só começar hoje.
               </p>
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-4`}>
                 👉 Começar minha rotina leve agora
               </button>
-              <div className="flex flex-col items-center gap-1 text-sm font-medium text-slate-400 lg:items-end">
+              <div className="flex flex-col items-center gap-1 text-sm font-medium text-slate-400">
                 <p className="flex items-center gap-1.5">✔ Acesso imediato</p>
                 <p className="flex items-center gap-1.5">✔ Sem complicação</p>
                 <p className="flex items-center gap-1.5">✔ Você pode parar quando quiser</p>
