@@ -271,7 +271,7 @@ export function OfferPage() {
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <button onClick={handleCheckoutClick} className={checkoutButtonClassName}>
-                  Ver como funciona o método
+                  Quero me sentir mais leve agora
                 </button>
               </div>
 
