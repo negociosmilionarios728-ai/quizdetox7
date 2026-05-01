@@ -234,8 +234,7 @@ export function OfferPage() {
 
               <p className="mb-2 text-lg font-bold text-teal-600">A maioria das pessoas acha que é dieta...</p>
               <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">
-                Não é sobre dieta.<br />
-                É sobre se sentir mais leve todos os dias.
+                Você não precisa de dieta pra começar a se sentir leve no dia a dia
               </h1>
 
               <div className="mt-4 flex items-center gap-3">
@@ -476,7 +475,7 @@ export function OfferPage() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
                 <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                  Veja como pessoas estão se sentindo mais leves em poucos dias usando o Método Detox7 PRO
+                  Veja como pessoas estão se sentindo mais leves em poucos dias
                 </h2>
               </div>
               <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
@@ -626,7 +625,7 @@ export function OfferPage() {
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-200">Última chamada</p>
               <h2 className="mt-3 text-3xl font-black tracking-tight sm:text-4xl">
-                Somente HOJE o Detox7 PRO por R$ 9,99
+                Comece hoje e veja como é possível se sentir mais leve no dia a dia
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-slate-300">
                 Pagamento seguro, acesso imediato e garantia de 7 dias para você entrar com mais confiança.
@@ -637,9 +636,14 @@ export function OfferPage() {
               <p className="mb-4 text-sm font-bold text-slate-300">
                 Você não precisa mudar tudo. Só começar hoje.
               </p>
-              <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-0`}>
-                Começar agora por R$9,99
+              <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-4`}>
+                👉 Começar minha rotina leve agora
               </button>
+              <div className="flex flex-col items-center gap-1 text-sm font-medium text-slate-400 lg:items-end">
+                <p className="flex items-center gap-1.5">✔ Acesso imediato</p>
+                <p className="flex items-center gap-1.5">✔ Sem complicação</p>
+                <p className="flex items-center gap-1.5">✔ Você pode parar quando quiser</p>
+              </div>
             </div>
           </div>
         </section>
