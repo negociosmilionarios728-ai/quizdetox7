@@ -394,10 +394,10 @@ export function OfferPage() {
               Resultados Reais
             </div>
             <h2 className="text-3xl font-black text-slate-950 sm:text-5xl tracking-tight">
-              Resultados reais com o Método Detox7 PRO
+              Mudanças que começam na rotina do dia a dia
             </h2>
             <p className="mt-5 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              O Detox7 PRO não é apenas um guia, é o caminho para recuperar sua autoestima e se sentir leve novamente em apenas 30 dias.
+              O Detox7 PRO não é apenas um guia, é o caminho para recuperar sua autoestima e sentir diferença no seu corpo com uma rotina simples.
             </p>
           </div>
 
@@ -423,10 +423,10 @@ export function OfferPage() {
 
           <div className="mt-12 flex flex-col items-center justify-center gap-6 text-center">
             <p className="text-xl font-bold text-slate-800">
-              Pronto(a) para começar sua própria história de sucesso?
+              Você só precisa começar leve, um passo por vez
             </p>
             <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} max-w-md`}>
-              Ver como funciona o método por R$ 9,99 ainda hoje!
+              Quero começar minha rotina leve agora
             </button>
           </div>
         </section>
@@ -475,7 +475,7 @@ export function OfferPage() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
                 <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                  Veja como funciona na prática
+                  Veja como é simples começar (leva menos de 2 minutos)
                 </h2>
               </div>
               <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
@@ -634,7 +634,7 @@ export function OfferPage() {
 
             <div className="w-full max-w-sm text-center">
               <p className="mb-4 text-sm font-bold text-slate-300">
-                Você não precisa mudar tudo. Só começar hoje.
+                Você não precisa mudar tudo de uma vez. Só precisa começar.
               </p>
               <button onClick={handleCheckoutClick} className={`${checkoutButtonClassName} mb-4`}>
                 👉 Começar minha rotina leve agora
