@@ -530,7 +530,7 @@ export function OfferPage() {
 
             <div className="mt-6 space-y-4">
               {[
-                "Acesso ao aplicativo Detox7 PRO",
+                "Acesso ao protocolo Detox7 PRO",
                 "Plano com tarefas e acompanhamento visual",
                 "Receitas focadas em detox e rotina",
                 "Ebook bônus com 70 receitas saudáveis",
