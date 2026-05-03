@@ -403,7 +403,7 @@ export function OfferPage() {
 
           <div className="text-center mb-4">
             <p className="text-sm font-black uppercase tracking-[0.2em] text-teal-700">
-              Evolução ao longo da rotina
+              Resultados variam de pessoa para pessoa com consistência na rotina
             </p>
           </div>
           <div className="group relative mx-auto max-w-4xl overflow-hidden rounded-[2rem] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border-4 border-white transition-transform duration-500 hover:scale-[1.01]">
@@ -475,7 +475,7 @@ export function OfferPage() {
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-teal-700">Veja por dentro</p>
                 <h2 className="mt-2 text-2xl font-black text-slate-950 sm:text-3xl">
-                  Veja como é simples começar (leva menos de 2 minutos)
+                  Veja como funciona na prática (leva menos de 2 minutos)
                 </h2>
               </div>
               <div className="hidden rounded-full bg-teal-50 px-4 py-2 text-sm font-semibold text-teal-700 sm:block">
@@ -561,62 +561,79 @@ export function OfferPage() {
           </div>
         </section>
 
-        <section className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="overflow-hidden rounded-[2rem] border border-teal-200/60 bg-white p-5 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="mb-2 text-sm font-bold text-teal-600">Relatos de quem começou a aplicar a rotina no dia a dia</p>
-                <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">Prova social</p>
-                <h2 className="mt-2 text-2xl font-black text-slate-950">Olha o que estão falando 👇</h2>
-              </div>
-              <button
-                type="button"
-                onClick={() => setIsTestimonialsZoomed(true)}
-                className="rounded-full border border-teal-200 px-4 py-2 text-sm font-semibold text-teal-700 transition hover:bg-teal-50"
-              >
-                Ver depoimentos reais
-              </button>
-            </div>
+        <section className="overflow-hidden rounded-[2.5rem] border border-teal-200/60 bg-white p-8 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
+          <div className="text-center mb-10">
+            <p className="mb-4 text-xl font-bold text-teal-600">⭐ Mais de 3.000 pessoas já começaram</p>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">Prova social</p>
+            <h2 className="mt-2 text-3xl font-black text-slate-950 sm:text-5xl tracking-tight">Olha o que estão falando 👇</h2>
+            <p className="mt-4 text-lg text-slate-600">Relatos reais de quem começou a aplicar a rotina no dia a dia</p>
+          </div>
 
-            <div className="mt-5 cursor-pointer" onClick={() => setIsTestimonialsZoomed(true)}>
+          <div className="flex justify-center">
+            <div
+              className="relative w-full max-w-5xl cursor-pointer overflow-hidden rounded-[2rem] shadow-2xl transition duration-500 hover:scale-[1.02]"
+              onClick={() => setIsTestimonialsZoomed(true)}
+            >
               <Image
                 src="/images/nova-prova-social.png"
                 alt="Depoimentos de clientes sobre o Detox7 PRO"
-                width={800}
-                height={450}
-                className="w-full rounded-[1.6rem] shadow-lg transition duration-300 hover:scale-[1.01]"
+                width={1600}
+                height={900}
+                className="w-full h-auto"
+                priority
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100 flex items-end justify-center pb-8">
+                <button className="bg-white/90 backdrop-blur px-6 py-2 rounded-full font-bold text-slate-950 shadow-lg">
+                  Clique para ampliar
+                </button>
+              </div>
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-teal-200/60 bg-white p-6 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setIsTestimonialsZoomed(true)}
+              className="rounded-full bg-teal-50 border-2 border-teal-200 px-8 py-3 text-base font-bold text-teal-700 transition hover:bg-teal-100 hover:scale-105"
+            >
+              Ver todos os depoimentos reais
+            </button>
+          </div>
+        </section>
+
+        <section className="rounded-[2.5rem] border border-teal-200/60 bg-white p-8 shadow-[0_35px_90px_-50px_rgba(15,23,42,0.35)]">
+          <div className="text-center mb-10">
             <p className="text-sm font-bold uppercase tracking-[0.22em] text-teal-700">Perguntas frequentes</p>
-            <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">Ainda com dúvidas? A gente te explica </h2>
+            <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">Ainda com dúvidas? A gente te explica </h2>
+          </div>
 
-            <div className="mt-6 space-y-3">
-              {faqs.map((faq, index) => {
-                const isOpen = openFaqIndex === index
+          <div className="mx-auto max-w-3xl space-y-3">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaqIndex === index
 
-                return (
-                  <div
-                    key={faq.question}
-                    className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50/80"
+              return (
+                <div
+                  key={faq.question}
+                  className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50/80 transition-all duration-300 hover:border-teal-200"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
                   >
-                    <button
-                      type="button"
-                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                      className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
-                    >
-                      <span className="font-semibold text-slate-900">{faq.question}</span>
-                      <ChevronDown
-                        className={`h-5 w-5 shrink-0 text-teal-700 transition-transform ${isOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                    {isOpen && <div className="px-5 pb-5 text-sm leading-7 text-slate-600">{faq.answer}</div>}
-                  </div>
-                )
-              })}
-            </div>
+                    <span className="font-bold text-slate-900 sm:text-lg">{faq.question}</span>
+                    <ChevronDown
+                      className={`h-6 w-6 shrink-0 text-teal-700 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <div className="px-6 pb-6 text-base leading-relaxed text-slate-600 animate-in fade-in slide-in-from-top-2">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
         </section>
 
