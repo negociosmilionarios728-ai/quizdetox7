@@ -50,7 +50,7 @@ const highlights = [
 const faqs = [
   {
     question: "Como recebo o acesso depois da compra?",
-    answer: "Assim que o pagamento for confirmado, o acesso e liberado imediatamente com as instruções para entrar no aplicativo.",
+    answer: "Assim que o pagamento for confirmado, o acesso e liberado imediatamente com as instruções para entrar no protocolo.",
   },
   {
     question: "Preciso seguir uma dieta dificil?",
@@ -229,7 +229,7 @@ export function OfferPage() {
             <div className="relative">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-teal-200 bg-teal-50 px-3 py-2 text-xs font-bold uppercase tracking-[0.18em] text-teal-700">
                 <Star className="h-4 w-4 fill-current" />
-                Aplicativo + bônus imediato
+                Protocolo + bônus imediato
               </div>
 
               <p className="mb-2 text-lg font-bold text-teal-600">A maioria das pessoas acha que é dieta...</p>
